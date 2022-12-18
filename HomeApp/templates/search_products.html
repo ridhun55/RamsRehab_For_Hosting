@@ -1,0 +1,244 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Search Blog {% endblock %}
+
+{% block content %}
+
+<main id="main">
+
+   <style>
+      .services{
+         background: url("{% static 'assets/img/bg/bg_4.jpg' %}");
+         background-repeat: no-repeat;
+         background-size: cover;
+         padding-top: 20px;
+      }
+
+      .doctors .member .pic {
+         overflow: hidden;
+         min-width: 190px;
+         border-radius: 5%;
+}
+.doctors .member {
+    position: relative;
+    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+    padding: 10px;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+   </style>
+<style>
+   .card-body{
+      padding-top: 10px;
+      padding-bottom: 10px;
+   }
+   .card{
+    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+    padding: 0;
+    border-radius: 10px;
+    border: none;
+    margin-top: auto;
+    width: 20rem;
+   }
+   .card-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 18px;
+      color: #2c4964;
+      font-family: 'Open Sans', sans-serif;
+      border-bottom: solid 1px #b2c8dd;
+   }
+   .card-sub{
+      display: block;
+      font-size: 14px;
+      padding-bottom: 5px;
+      position: relative;
+      font-weight: 600;
+      display: inline;
+      color: #ffffff;
+      
+   }
+   .card-text{
+      margin: 5px 0 0 0;
+      font-size: 14px
+   }
+   .submit_button{
+      background: #1977cc;
+      border: 0;
+      padding: 10px 35px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 50px;
+      cursor: pointer;
+      -webkit-appearance: button;
+      text-transform: none;
+      overflow: visible;
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      text-align: center !important;
+      font-weight: 400;
+   }
+
+   @media only screen and (max-width: 300px) {
+      .cat_date{
+         display: none;
+      }
+      .card-text{
+      margin: 2px 0 0 0;
+      font-size: 12px
+      }
+      .card-title {
+      font-weight: 600;
+      margin-bottom: 3px;
+      font-size: 14px;
+   }
+   .card{
+    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+    padding: 0;
+    border-radius: 10px;
+    border: none;
+    margin-top: auto;
+    width: 20rem;
+   }
+   }
+
+</style>
+
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Search Results..</h2>
+            <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Shop</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+
+
+   <section id="services" class="services">
+      <div class="container">
+         
+         <nav class="navbar navbar-light justify-content-center">
+            <form action="{% url 'search_products' %}" method="POST" class="form-inline">
+               {% csrf_token %}
+               <div class="input-group mb-3" >
+                  <input type="search" name="searched"  class="form-control outline-info" placeholder="Search Product" aria-describedby="basic-addon1">
+                  <div class="input-group-prepend" >
+                     <button  type="submit" class="btn btn-outline-info" id="basic-addon1"><i class="icofont-search"></i></button>
+                  </div>
+               </div>
+            </form>
+          </nav>
+
+        <div class="section-title">
+         {% if searched %}
+            <h2>Searching For "{{ searched }}"</h2>
+         {% else %}
+         <span style="font-size: xx-large">
+            - <i class="icofont-search"></i> -
+         </span>
+         <h3>hey! You forgot to search for a Product...</h3>
+         {% endif %}
+        <br>
+      </div>
+
+
+
+
+      <div class="row">
+         
+      {% if searched %}
+
+         {% for search in search_post %}
+         <div class="col-md-4 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <a href="{% url 'shop_detail' search.id %}">
+                  <img class="card-img-top" src="{{ search.item_Image.url}}" alt="Card image cap">
+               </a>
+                 <div class="card-body">
+                  <a href="{% url 'shop_detail' search.id %}">
+                     <h5 class="card-title">{{ search.item }}<span class="card-sub"> </span></h5>
+                  </a>
+                  <div class="d-flex justify-content-between pt-3">
+                     {% if search.offer_price %}
+                        <strike>
+                           <b><p>Price {{ search.price }}</p></b>
+                        </strike>
+                     <b><p class="text-danger">Our Price : {{ search.offer_price }}/-</p></b>
+                     {% else %}
+                        <b><p>Price {{ search.price }}</p></b>
+                     {% endif %}
+                  </div>
+                 <p class="card-text">{{ search.discription|slice:":100"|safe }}... 
+                    <a href="{% url 'shop_detail' search.id %}"class="d-flex flex-row-reverse m-0 p-0"> ReadMore</a></p>
+               </div>
+             </div>
+          </div>
+         {% endfor %}
+
+         {% if not search_post %}
+            {% for search in search_category %}
+            <div class="col-md-4 d-flex align-items-stretch mt-4">
+               <div class="card">
+                  <a href="{% url 'shop_detail' search.id %}">
+                     <img class="card-img-top" src="{{ search.item_Image.url}}" alt="Card image cap">
+                  </a>
+                    <div class="card-body">
+                     <a href="{% url 'shop_detail' search.id %}">
+                        <h5 class="card-title">{{ search.item }}<span class="card-sub"> </span></h5>
+                     </a>
+                     <div class="d-flex justify-content-between pt-3">
+                        {% if search.offer_price %}
+                           <strike>
+                              <b><p>Price {{ search.price }}</p></b>
+                           </strike>
+                        <b><p class="text-danger">Our Price : {{ search.offer_price }}/-</p></b>
+                        {% else %}
+                           <b><p>Price {{ search.price }}</p></b>
+                        {% endif %}
+                     </div>
+                    <p class="card-text">{{ search.discription|slice:":100"|safe }}... <a href="{% url 'shop_detail' item.id %}"class="d-flex flex-row-reverse m-0 p-0"> ReadMore</a></p>
+                  </div>
+                </div>
+             </div>
+             {% endfor %}
+         {% endif %}
+         
+         {% if not search_post %}
+            {% if not search_category%}
+            <div class="col-md-12 section-title">
+               <div style="font-size: xxx-large; margin-bottom: 5px;">
+                  <i class="icofont-binoculars"></i>
+               </div>
+               <h2>No Result Found</h2>
+               <p>please try another keyword</p>
+               
+               <a href="{% url 'home' %}">
+                  <button class="submit_button mt-3"><i class="icofont-home"></i> Home</button>
+               </a>
+            </div>
+            
+            {% endif %}
+         {% endif %}
+  
+        </div>
+
+        
+
+
+      {% endif %}
+  
+      </div>
+    </section>
+
+ </main>
+
+
+{% endblock content %}

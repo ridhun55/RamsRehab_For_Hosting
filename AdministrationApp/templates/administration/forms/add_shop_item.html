@@ -1,0 +1,116 @@
+
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+{% block content %}
+<main class="pt-5 mx-lg-5">
+   <div class="container-fluid mt-5">
+      {% if user.is_superuser %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>Add Shop Items</span>
+            </h4>
+         </div>
+      </div>
+      <style>
+         #regform.helptext{
+         display:none;
+         }
+         #regform ul li{
+         font-size:10px;
+         }
+      </style>
+      <form action="" method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+         <div class="row wow fadeIn">
+            <div class="col-md-10 mx-auto">
+               <div class="card mb-4">
+                  <div class="card-header text-white bg-primary">Add Shop Item</div>
+                  <div class="card-body">
+                     <p class="text-danger text-center">* Image Size : 700 x 700 pixals (for better alignment)</p>
+                     <div class="list-group list-group-flush">
+                        <div id="regform" class="form-outline">
+                           {{ form.media }}
+                           {{ form.as_p }}
+                        </div>
+                     </div>
+                     <div class="col-md-10 d-flex  justify-content-center mx-auto" >
+                        <div class=" mb-2">
+                           <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      {% else %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body text-center">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>You are not allowed here !!</span>
+            </h4>
+            <h5 class="my-2 mb-sm-0 pt-1 text-danger">
+               <br>
+               <span>Only admin can Add Shop Items</span><br><br>
+               <p>- Please Contact Admin -</p>
+            </h5>
+         </div>
+      </div>
+   {% endif %}
+   </div>
+
+   {% if user.is_staff %}
+   <div class="col-md-12 mb-4 mt-4">
+      <div class="card">
+         <div class="card-header bg-primary text-white d-flex justify-content-between">
+            <span>Shop Item Details</span> <span>   </span>
+         </div>
+         <div class="card-body">
+            <table class="table table-hover" >
+               <thead class="blue lighten-4 text-center">
+                  <tr>
+                     <th>Roll</th>
+                     <th>Image</th>
+                     <th>Item</th>
+                     <th>Product Code</th>
+                     <th>Price</th>
+                     <th>Offer Price</th>
+                     <th>Added Date</th>
+                     {% if user.is_superuser %}
+                     <th>Delete</th>
+                     {% endif %}
+                  </tr>
+               </thead>
+               <tbody class="text-center" style="line-height: 50px;">
+                  {% for item in data %}
+                  <tr>
+                     <th>{{ forloop.revcounter }}</th>
+                     <td style="padding: 10px 0 10px 0;">
+                        {% if item.item_Image %}
+                           <img src="{{ item.item_Image.url}}" width="100px" height="auto" alt="{{ item.item_name |capfirst }}">
+                        {% endif %}
+                     </td>
+                     <th >{{ item.item |capfirst }}</th>
+                     <th class="text-danger"><b>P{{ item.id }}</b></th>
+                     <th >{{ item.price }}</th>
+                     <th class="text-danger"><b>{% if item.offer_price %}{{ item.offer_price }}{% else %}_____{% endif %}</b></th>
+                     <th >{{ item.submit_date | date:'d-m-Y' }}</th>
+                     {% if user.is_superuser %}
+                     <td>
+                        <a class="red-text" href="{% url 'delete_shop_item' item.id %}"><strong><i class="fas fa-trash-alt"></i></strong></a>
+                     </td>
+                     {% endif  %}
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+   {% endif %}
+</main>
+{% endblock %}
+

@@ -1,0 +1,171 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main id="main">
+
+   <style>
+      .services{
+         background: url("{% static 'assets/img/bg/bg_4.jpg' %}");
+         background-repeat: no-repeat;
+         background-size: cover;
+         padding-top: 20px;
+      }
+
+      .doctors .member .pic {
+         overflow: hidden;
+         min-width: 190px;
+         border-radius: 5%;
+}
+.doctors .member {
+    position: relative;
+    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+    padding: 10px;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+   </style>
+<style>
+   .card-body{
+      padding-top: 10px;
+      padding-bottom: 10px;
+   }
+   .card{
+    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+    padding: 0;
+    border-radius: 10px;
+    border: none;
+    margin-top: auto;
+    width: 20rem;
+   }
+   .card-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 18px;
+      color: #2c4964;
+      font-family: 'Open Sans', sans-serif;
+      border-bottom: solid 1px #b2c8dd;
+   }
+   .card-sub{
+      display: block;
+      font-size: 14px;
+      padding-bottom: 5px;
+      position: relative;
+      font-weight: 600;
+      display: inline;
+      color: #ffffff;
+      
+   }
+   .card-text{
+      margin: 5px 0 0 0;
+      font-size: 14px
+   }
+   @media only screen and (max-width: 300px) {
+      .cat_date{
+         display: none;
+      }
+      .card-text{
+      margin: 2px 0 0 0;
+      font-size: 12px
+      }
+      .card-title {
+      font-weight: 600;
+      margin-bottom: 3px;
+      font-size: 14px;
+   }
+   .card{
+    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+    padding: 0;
+    border-radius: 10px;
+    border: none;
+    margin-top: auto;
+    width: 20rem;
+   }
+   }
+
+</style>
+
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Shop</h2>
+            <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Shop</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+
+
+   <section id="services" class="services">
+      <div class="container">
+         
+         <nav class="navbar navbar-light justify-content-center">
+            <form action="{% url 'search_products' %}" method="POST" class="form-inline">
+               {% csrf_token %}
+               <div class="input-group mb-3" >
+                  <input type="search" name="searched"  class="form-control outline-info" placeholder="Search Product" aria-describedby="basic-addon1">
+                  <div class="input-group-prepend" >
+                     <button  type="submit" class="btn btn-outline-info" id="basic-addon1"><i class="icofont-search"></i></button>
+                  </div>
+               </div>
+            </form>
+          </nav>
+
+        <div class="section-title">
+          <h2>Shop</h2>
+          <p>Our Products are shown below..</p>
+        <br>
+      </div>
+
+
+
+
+        <div class="row">
+         
+         {% for item in data %}
+         <div class="col-md-4 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <a href="{% url 'shop_detail' item.id %}">
+                  <img class="card-img-top" src="{{ item.item_Image.url}}" alt="Card image cap">
+               </a>
+                 <div class="card-body">
+
+                  <a href="{% url 'shop_detail' item.id %}">
+                     <h5 class="card-title">{{ item.item |capfirst }}<span class="card-sub"> </span></h5>
+                  </a>
+                  <div class="d-flex justify-content-between ">
+                     <small>Code :<span class="text-info"><b> P{{ item.id }}</b></span></small>
+                     <small>Category :<span class="text-info"> {{ item.category |capfirst }}</span></small>
+                  </div>
+                  <div class="d-flex justify-content-between pt-3">
+                     {% if item.offer_price %}
+                        <strike>
+                           <b><p>Price {{ item.price }}</p></b>
+                        </strike>
+                     <b><p class="text-danger">Our Price : {{ item.offer_price }}/-</p></b>
+                     {% else %}
+                        <b><p>Price {{ item.price }}</p></b>
+                     {% endif %}
+                  </div>
+                 <p class="card-text">{{ item.discription|slice:":100"|safe }}... 
+                    <a href="{% url 'shop_detail' item.id %}"class="d-flex flex-row-reverse m-0 p-0"> ReadMore</a></p>
+               </div>
+             </div>
+          </div>
+          {% endfor %}
+
+          
+
+        </div>
+      </div>
+    </section>
+
+ </main>
+
+
+{% endblock content %}

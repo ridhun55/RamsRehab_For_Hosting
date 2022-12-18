@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+
+   <style>
+      .contact_bg{
+      background: url("{% static 'assets/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .contact .info p{
+         font-weight: 600;
+         font-size: 16px;
+         color: #000000d4;
+         padding: 6px ​0px 0px 80p;
+      }
+   </style>
+
+
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>404</h2>
+            <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>404</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+
+   <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+         <h2>Page Not Fount</h2>
+          <p</p>
+        </div>
+      </div>
+
+    </section>
+
+ </main>
+{% endblock content %}

@@ -1,0 +1,204 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+
+   <style>
+      .services{
+         background: url("{% static 'assets/img/bg/bg_4.jpg' %}");
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+
+      .doctors .member .pic {
+         overflow: hidden;
+         min-width: 190px;
+         border-radius: 5%;
+}
+.doctors .member {
+    position: relative;
+    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+    padding: 10px;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+   </style>
+<style>
+   .card{
+    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+    padding: 0;
+    border-radius: 10px;
+    border: none;
+    margin-top: auto;
+    width: 20rem;
+   }
+   .card-title {
+      font-weight: 700;
+      margin-bottom: 5px;
+      font-size: 20px;
+      color: #2c4964;
+      font-family: 'Open Sans', sans-serif;
+      border-bottom: solid 1px #b2c8dd;
+   }
+   .card-sub{
+      display: block;
+      font-size: 15px;
+      padding-bottom: 5px;
+      position: relative;
+      font-weight: 600;
+      display: inline;
+      
+   }
+
+   .card-text{
+      margin: 5px 0 0 0;
+      font-size: 14px
+   }
+</style>
+
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Services</h2>
+            <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Services</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+
+
+   <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>We are providing advanced electrotherapy units to minimise 
+            your pain. Beyond this Manual therapy and therapeutic 
+            exercise <br/>can completely and permanently cure  your 
+            disorders.
+            Most advanced techniques like Dry needling stimulation 
+            and <br/>sports taping can heal your worst health conditions.
+          </p>
+        <br>
+      </div>
+
+
+        <div class="row">
+         
+         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <img class="card-img-top" src="{% static 'assets/img/services/ems.jpg' %}" alt="Card image cap">
+               <div class="card-body">
+                 <h5 class="card-title">EMS<span class="card-sub"> (Electrical Muscle Stimulation)</span></h5>
+                 <span class="card-sub"></span>
+                 <p class="card-text"></p>
+               </div>
+             </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <img class="card-img-top" src="{% static 'assets/img/services/ift.jpg' %}" alt="Card image cap">
+               <div class="card-body">
+                 <h5 class="card-title">IFT<span class="card-sub"> (Interferential therapy)</span></h5>
+                 <span class="card-sub"></span>
+                 <p class="card-text"></p>
+               </div>
+             </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <img class="card-img-top" src="{% static 'assets/img/services/tens.jpg' %}" alt="Card image cap">
+               <div class="card-body">
+                 <h5 class="card-title">TENS</h5>
+                 <span class="card-sub"></span>
+                 <p class="card-text"></p>
+               </div>
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <img class="card-img-top" src="{% static 'assets/img/services/ultrasound.jpg' %}" alt="Card image cap">
+               <div class="card-body">
+                 <h5 class="card-title">Ultrasound</h5>
+                 <span class="card-sub"></span>
+                 <p class="card-text"></p>
+               </div>
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <img class="card-img-top" src="{% static 'assets/img/services/kt_taping.jpg' %}" alt="Card image cap">
+               <div class="card-body">
+                 <h5 class="card-title">KT Taping</h5>
+                 <span class="card-sub"></span>
+                 <p class="card-text"></p>
+               </div>
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <img class="card-img-top" src="{% static 'assets/img/services/cupping_therapy.jpg' %}" alt="Card image cap">
+               <div class="card-body">
+                 <h5 class="card-title">Cupping Therapy</h5>
+                 <span class="card-sub"></span>
+                 <p class="card-text"></p>
+               </div>
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <img class="card-img-top" src="{% static 'assets/img/services/traction_treatment.jpg' %}" alt="Card image cap">
+               <div class="card-body">
+                 <h5 class="card-title">Traction Treatment</h5>
+                 <span class="card-sub"></span>
+                 <p class="card-text"></p>
+               </div>
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <img class="card-img-top" src="{% static 'assets/img/services/dry_needing.jpg' %}" alt="Card image cap">
+               <div class="card-body">
+                 <h5 class="card-title">Dry needing</h5>
+                 <span class="card-sub"></span>
+                 <p class="card-text"></p>
+               </div>
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <img class="card-img-top" src="{% static 'assets/img/services/myofascial_release.jpg' %}" alt="Card image cap">
+               <div class="card-body">
+                 <h5 class="card-title">Myofascial Release</h5>
+                 <span class="card-sub"></span>
+                 <p class="card-text"></p>
+               </div>
+             </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card">
+               <img class="card-img-top" src="{% static 'assets/img/services/therapeutic_exercise.jpg' %}" alt="Card image cap">
+               <div class="card-body">
+                 <h5 class="card-title">Therapeutic Exercise</h5>
+                 <span class="card-sub"></span>
+                 <p class="card-text"></p>
+               </div>
+             </div>
+          </div>
+          
+          
+
+        </div>
+      </div>
+    </section>
+
+    {% include "counter.html" %}
+ </main>
+{% endblock content %}

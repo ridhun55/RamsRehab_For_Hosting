@@ -1,0 +1,116 @@
+
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+{% block content %}
+<main class="pt-5 mx-lg-5">
+   <div class="container-fluid mt-5">
+      {% if user.is_superuser %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>Nurse / Staff  Registration Form</span>
+            </h4>
+         </div>
+      </div>
+      <style>
+         #regform.helptext{
+         display:none;
+         }
+         #regform ul li{
+         font-size:10px;
+         }
+         #regform .helptext{
+         font-size:10px;
+         }
+         #regform #id_is_staff{
+         width: 30px;
+         }
+      </style>
+      <form action="" method="POST">
+         {% csrf_token %}
+         <div class="row wow fadeIn">
+            <div class="col-md-10 mx-auto">
+               <div class="card mb-4">
+                  <div class="card-header text-white bg-primary">Nurse / Staff Details</div>
+                  <div class="card-body">
+                     <div class="list-group list-group-flush">
+                        <div id="regform" class="form-outline">
+                           {{ form.as_p }}
+                        </div>
+                     </div>
+                     <div class="col-md-10 d-flex  justify-content-center mx-auto" >
+                        <div class=" mb-2">
+                           <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      {% else %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body text-center">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>You are not allowed here !!</span>
+            </h4>
+            <h5 class="my-2 mb-sm-0 pt-1 text-danger">
+               <br>
+               <span>Only admin can Add Nurse / Staff Details</span><br><br>
+               <p>- Please Contact Admin -</p>
+            </h5>
+         </div>
+      </div>
+   {% endif %}
+
+   </div>
+   {% if user.is_superuser %}
+   <div class="col-md-12 mb-4 mt-4">
+      <div class="card">
+         <div class="card-header bg-primary text-white d-flex justify-content-between">
+            <span>Nurse / Staff Details</span> <span>   </span>
+         </div>
+         <div class="card-body">
+            <table class="table table-hover" >
+               <thead class="blue lighten-4 text-center">
+                  <tr>
+                     <th>Roll</th>
+                     <th>Name</th>
+                     <th>Username</th>
+                     <th>Is Staff</th>
+                     <th>Status</th>
+                     <th>Email</th>
+                     <th>Delete</th>
+                  </tr>
+               </thead>
+               <tbody class="text-center" >
+                  {% for item in data %}              
+                  <tr>
+                     <th>{{ forloop.counter }}</th>
+                     {% if item.is_superuser %}
+                        <th>ADMIN</th>
+                     {% else %}
+                        <th >{{ item.first_name|capfirst }} {{ item.last_name }}</th>
+                     {% endif %}
+                     <th >{{ item.username }}</th>
+                     <th >{% if item.is_staff %} <span class="text-danger">Yes</span> {% else %} No {% endif %}</th>
+                     <th >{% if item.is_superuser %} Admin {% else %} {% if item.is_staff %} Nurse / Staff {% else %}Blogger {% endif %}{% endif %}</th>
+                     <th >{{ item.email }}</th>
+                     <td>
+                        {% if item.is_superuser %} {% else %}
+                        <a class="red-text" href="{% url 'delete_nurse' item.id %}"><strong><i class="fas fa-trash-alt"></i></strong></a>
+                        {% endif %}
+                     </td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+   {% endif %}
+</main>
+{% endblock %}
+

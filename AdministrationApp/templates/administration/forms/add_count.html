@@ -1,0 +1,117 @@
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+
+{% block content %}
+      
+<main class="pt-5 mx-lg-5">
+  <div class="container-fluid mt-5">
+   {% if user.is_superuser %}
+    <div class="card mb-4 wow fadeIn">
+        <div class="card-body d-sm-flex justify-content-between">
+          <h4 class="mb-2 mb-sm-0 pt-1">
+              <span>Add Counter Values</span>
+          </h4>
+        </div>
+    </div>
+
+    <form action="" method="POST">
+      {% csrf_token %}
+    <div class="row wow fadeIn">
+  
+      
+         <div class="col-md-6 ">
+         <div class="card mb-4 ">
+            <div class="card-header text-white bg-primary">Add Counter Values</div>
+            <div class="card-body">
+               <div class="list-group list-group-flush">
+                  <div class="form-outline">
+                     <label class="form-label" for="typeText1">Docters <span style="color: red;">*</span></label>
+                     <input name="docter_count" value="{{ data.docter_count }}" type="text" id="typeText1" class="form-control" />
+                  </div>
+                  <div class="form-outline mt-2">
+                     <label class="form-label" for="typeText2">Departments <span style="color: red;">*</span></label>
+                     <input name="department_count" value="{{ data.department_count }}" type="text" id="typeText2" class="form-control" />
+                  </div>
+                  <div class="form-outline mt-2">
+                     <label class="form-label" for="typeText2">Reserch Labs <span style="color: red;">*</span></label>
+                     <input name="reserchlab_count" value="{{ data.reserchlab_count }}" type="text" id="typeText2" class="form-control" />
+                  </div>
+                  <div class="form-outline mt-2">
+                     <label class="form-label" for="typeText2">Awards <span style="color: red;">*</span></label>
+                     <input name="awards_count" value="{{ data.awards_count }}" type="text" id="typeText2" class="form-control" />
+                  </div>
+                  <div class="form-outline mt-2 d-flex justify-content-center">
+                     <button type="submit" class="btn btn-sm text-white btn-primary"><b>Submit</b> </button>
+                     <a href="{% url 'administration_home' %}" type="button" class="btn text-white btn-sm btn-primary"><b>Cancel</b></a>
+                  </div> 
+                  
+               </div>
+            </div>
+         </div>
+         </div>
+
+         <div class="col-md-6 ">
+            {% for i in data %}
+            <div class="card mb-4">
+               <div class="card-body">
+                  <div class="list-group list-group-flush">
+                     <span class="d-flex justify-content-end">
+                        <a href="{% url 'delete_count' i.id %}"><span class="badge badge-danger badge-pill pull-right">Delete</span></a>
+                     </span>
+                     <span class="d-flex justify-content-between">
+                        <span>Current Counter Values</span> 
+                        <small style="padding-right: 10px;">{{ i.submit_date | date:'d / m / Y' }}</small>
+                     </span> 
+                     <span class="list-group-item list-group-item-action waves-effect">
+                        <span class="badge badge-success badge-pill pull-right">{{ i.docter_count }}  
+                        </span> &nbsp;
+                        Docters
+                     </span>
+
+                     <span class="list-group-item list-group-item-action waves-effect">
+                        <span class="badge badge-success badge-pill pull-right">{{ i.department_count }} 
+                        </span> &nbsp;
+                        Departments 
+                     </span>
+                     <span class="list-group-item list-group-item-action waves-effect">
+                        <span class="badge badge-success badge-pill pull-right">{{ i.reserchlab_count }} 
+                        </span> &nbsp;
+                        Reserch Labs 
+                     </span>
+                     <span class="list-group-item list-group-item-action waves-effect">
+                        <span class="badge badge-success badge-pill pull-right">{{ i.awards_count }} 
+                        </span> &nbsp
+                        Awards  
+                     </span>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+            </div>
+         
+
+
+    </div>
+   </form>
+   {% else %}
+   <div class="card mb-4 wow fadeIn">
+      <div class="card-body text-center">
+         <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>You are not allowed here !!</span>
+         </h4>
+         <h5 class="my-2 mb-sm-0 pt-1 text-danger">
+            <br>
+            <span>Only admin can change Counter values</span><br><br>
+            <p>- Please Contact Admin -</p>
+         </h5>
+      </div>
+   </div>
+      {% endif %}
+  </div>
+</main>
+
+{% endblock %}
+      

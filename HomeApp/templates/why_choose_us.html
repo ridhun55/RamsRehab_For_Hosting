@@ -1,0 +1,93 @@
+
+
+{% load static %}
+
+    <section id="why-us" class="why-us">
+      <div class="container" >
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3 style="text-align:center;margin-bottom: 18px;">Ear Balance</h3>
+              <p style="text-align:center">
+                <b>Ram's Rehab</b> is the first Physical
+                therapy center in India which focusing on the root
+                cause of your ear balance and eradicating ear balance
+                from your day to day life through proper diet plan,
+                Manual therapy and Therapeutic exercises.<br><br>
+                <strong style="font-size:x-large">Ram's Rehab</strong><br />
+                <span>"Not the Pain but Cause"</span>
+              </p>
+              <div class="text-center">
+                <a href="{% url 'migraine'%}" class="more-btn">Read More<i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            .why-us .icon-boxes .icon-box p {
+                font-size: 15px;
+                color: #4b5055;
+                font-style: oblique;
+                font-weight: 500;
+              }
+              .why-us .icon-boxes .icon-box h4 {
+                  font-size: 19px;
+                  font-weight: 700;
+                  margin: 0 0 17px 0;
+              }
+          </style>
+          
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-4 d-flex align-items-stretch" style="padding-right: 10px;padding-left: 10px;">
+                  <a href="{% url 'musculoskeletal' %}">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <img alt="Musculoskeletal" style="width: 100px;padding-bottom: 15px;" src="{% static 'assets/img/icons/Musculoskeletal.png' %}">
+                    <h4 style="color: #298e77;">Bone & Muscles                    </h4>
+                    <p>
+                      focusing on the chronic muscles 
+                      related pain conditions and tendon, ligament injuries. 
+                      Degenerative conditions of bones. etc... 
+                    </p>
+                    <a href="{% url 'musculoskeletal' %}" type="button" class="btn btn-primary btn-sm" style="border-radius: 20px; padding-left: 20px; padding-right: 20px;" >Read More</a>
+                  </div>
+                    </a>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch" style="padding-right: 10px;padding-left: 10px;">
+                  <a href="{% url 'neurology' %}">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <img style="width: 100px;padding-bottom: 15px;" src="{% static 'assets/img/icons/Neurology.png' %}">
+                    <h4 style="color: #298e77;">Brain & Spinal cord</h4>
+                    <p>
+                      focusing on Neuroplasticity 
+                      and motor relearning techniques used for adult 
+                      neurological conditions. etc...
+                    </p>
+                    <a href="{% url 'neurology' %}" type="button" class="btn btn-primary btn-sm" style="border-radius: 20px; padding-left: 20px; padding-right: 20px;" >Read More</a>
+                  </div>
+                </a>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch" style="padding-right: 10px;padding-left: 10px;">
+                  <a href="{% url 'pediatrics' %}">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <img style="width: 100px;padding-bottom: 15px;" src="{% static 'assets/img/icons/Pediatrics.png' %}">
+                    <h4 style="color: #298e77;">Mom and Child</h4>
+                    <p>
+                      pre-delivery & post-delivery health of mother. Complete 
+                      knowledge about the milestones to be covered by 
+                      the child etc…
+                    </p>
+                    <a href="{% url 'pediatrics' %}" type="button" class="btn btn-primary btn-sm" style="border-radius: 20px; padding-left: 20px; padding-right: 20px;" >Read More</a>
+                  </div>
+                  </a>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+

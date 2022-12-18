@@ -1,0 +1,81 @@
+{% load static %}
+
+<footer id="footer">
+
+   <div class="footer-top">
+     <div class="container">
+       <div class="row">
+
+         <div class="col-lg-3 col-md-6 footer-contact">
+           <h3>Ram's Rehab</h3>
+           <p style="font-family:poppins; color: #444444;">
+            Ground floor, G-home building <br>
+            Maniyamkavu, puthenchira<br>
+            Thrissur-680682 <br><br>
+             <strong>Phone:<br></strong> &nbsp;&nbsp; +91 8589 8728 08 <br> &nbsp;&nbsp;&nbsp;+91 9633 2978 28<br><br>
+             <strong>Email:<br></strong> &nbsp;&nbsp; ramsrehab20@gmail.com<br>
+           </p>
+         </div>
+
+         <div class="col-lg-2 col-md-6 footer-links">
+           <h4>Useful Links</h4>
+           <ul>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}">Home</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}">About</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'services' %}">Services</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog_home' %}">Blogs</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'shop' %}">Shop</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'gallery' %}">Gallery</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact' %}">Contact</a></li>
+           </ul>
+         </div>
+
+         <div class="col-lg-3 col-md-6 footer-links">
+           <h4>Our Services</h4>
+           <ul>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'migraine'%}">Ear Balance</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'musculoskeletal' %}">Musculoskeletal</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'neurology' %}">Neurology</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'pediatrics' %}">Pediatrics</a></li>
+             <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}">Orthopedic</a></li>
+           </ul>
+         </div>
+
+         <div class="col-lg-4 col-md-6 footer-newsletter">
+           <h4>Join Our Newsletter</h4>
+           <p>To get our latest blog notifications..Subscribe our website now</p>
+           <form action="" method="POST">
+            {% csrf_token %}
+             <input type="email" name="email">
+             <input type="submit" value="Subscribe">
+           </form>
+         </div>
+
+       </div>
+     </div>
+   </div>
+
+   <div class="container d-md-flex py-4">
+
+     <div class="mr-md-auto text-center text-md-left">
+       <div class="copyright">
+         &copy; Copyright <strong><span>Ram's Rehab</span></strong>. All Rights Reserved
+       </div>
+       <div class="credits">
+       </div>
+     </div>
+     {% for s in social %}
+     <div class="social-links text-center text-md-right pt-3 pt-md-0">
+       <a href="{{s.twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+       <a href="{{s.facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+       <a href="{{s.instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+       <a href="{{s.google_plus}}" class="google-plus"><i class="bx bxl-skype"></i></a>
+       <a href="{{s.linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+     </div>
+     {% endfor %}
+   </div>
+ </footer>
+
+
+ <div id="preloader"></div>
+ <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>

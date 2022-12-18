@@ -1,0 +1,287 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+      text-decoration: none;
+      color: white;
+      }
+      .jumbotron .lead a:hover{
+      color:#007bff;
+      text-decoration-line: underline;
+      }
+      html{
+      scroll-behavior: smooth;
+      }
+      .jumbotron a{
+      text-decoration:none;
+      }
+   </style>
+ 
+ <style>
+   @media (max-width: 992px) {
+       .jumbotron h1 {
+           font-size: 28px;
+       }
+       .jumbotron p{
+           font-size: 15px;
+       }
+       .jumbotron a{
+           font-size: 15px;
+       }
+       .jumbotron h4{
+           font-size: 18px;
+       }
+   }
+    </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Musculoskeletal</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'musculoskeletal' %}">Musculoskeletal</a></li>
+               <li>Knee Joint</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section class="faq about_bg">
+      <div class="container">
+         <div class="section-title">
+            <h2>Knee Joint</h2>
+         </div>
+         <div class="container">
+            <div class="jumbotron text-white bg-white">
+               <div style="text-decoration: none;" class="d-flex justify-content-around flex-wrap text-bold text-center">
+                  <a class="border-bottom p-3" href="#a"> Anterior cruciate ligament injury</a><br/>
+                  <a class="border-bottom p-3" href="#b"> Meniscal tear </a><br/>
+                  <a class="border-bottom p-3" href="#c"> Ilio tibial band syndrome </a><br/>
+                  <a class="border-bottom p-3" href="#d"> Knee osteoarthritis </a><br/>
+                  <a class="border-bottom p-3" href="#e"> Hamstring strain </a>
+               </div>
+            </div>
+         </div>
+         <div class="row mx-auto justify-content-center">
+            <div id="a" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy 1</span>
+                  <h1 class="display-6">ANTERIOR CRUCIATE LIGAMENT INJURY</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Torn ACL in the knee joint during twisting movements<br/>
+                     - Pain during movement<br/>
+                     - Swelling<br/>
+                     - Atrophy of quadriceps muscle<br/>
+                     </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>   
+                  <p class="lead pl-4 py-2">
+                     - Anterior drawers test<br/>
+                     - Lachmanns test<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy<br/>
+                     - Ultrasound<br/>
+                     - TENS<br/>
+                     - Cryotherapy<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise 
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     <span>PHASE : 1</span><br/>
+                     &nbsp;&nbsp;-&nbsp; Patellar mobilization<br/>
+                     &nbsp;&nbsp;-&nbsp; Static quadriceps<br/>
+                     &nbsp;&nbsp;-&nbsp; VMO strengthening using a ball<br/>
+                     &nbsp;&nbsp;-&nbsp; Hamstring stretching in sitting<br/>
+                     <br/>
+                     <span>PHASE : 2</span><br/>
+                     &nbsp;&nbsp;-&nbsp; Quadriceps strengthening using theraband<br/>
+                     &nbsp;&nbsp;-&nbsp; VMO strengthening using theraband<br/>
+                     &nbsp;&nbsp;-&nbsp; Single leg standing<br/>
+                     &nbsp;&nbsp;-&nbsp; Squatting<br/>
+                     &nbsp;&nbsp;-&nbsp; Aquatic activities<br/>
+                     <br/>
+                     <span>PHASE : 3</span><br/>
+                     &nbsp;&nbsp;-&nbsp; Single leg squatting<br/>
+                     &nbsp;&nbsp;-&nbsp; Plyometric deep jumb<br/>
+                     &nbsp;&nbsp;-&nbsp; Ice skating<br/>
+                  </p>
+               </div>
+            </div>
+
+            <div id="b" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy 2</span>
+                  <h1 class="display-6">MENISCAL TEAR</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Can be caused by a single injury or over time in people who are active and older people<br/>
+                     - Recurrent locking of knee joint<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Palpating joint line tenderness<br/>
+                     - McMurray’s test<br/>
+                     - Teslay’s test
+         
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy<br/>
+                     - TENS<br/>
+                     - Cryotherapy<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Static quadriceps<br/>
+                     - Static hamstring<br/>
+                     - Passive knee flexion<br/>
+                     - Resisted knee extension<br/>
+                     - Single leg bridging<br/>
+                     - VMO strengthening<br/>
+                     - Clamshell exercise<br/>
+                     - Kinesio taping<br/>
+                  </p>
+               </div>
+            </div>
+            <div id="c" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy 3</span>
+                  <h1 class="display-6">ILIO-TIBIAL BAND SYNDROME</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Friction between IT band and knee leads to pain<br/>
+                     - Pain is severe when there is tension in IT band<br/>
+                     - Most tension in 20-30 degree knee flexion<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Cryotherapy<br/>
+                     - Dry needling<br/>
+                     - TENS<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Side lying abductor strengthening using Theraband<br/>
+                     - Resisted side stop with Theraband<br/>
+                     - Hydrants<br/>
+                     - IT band stretch<br/>
+                  </p>
+                  
+               </div>
+            </div>
+            <div id="d" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy 4</span>
+                  <h1 class="display-6">KNEE OSTEOARTHRITIS</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Joint pain<br/>
+                     - Morning stiffness of knee joint<br/>
+                     - Decreased muscle strength<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Knee PROM with overpressure<br/>
+         
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy<br/>
+                     - TENS<br/>
+                     - Ultrasound<br/>
+                     - Cryotherapy<br/>
+                     - Dry needling<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Static quadriceps<br/>
+                     - Static gluteus<br/>
+                     - VMO strengthening<br/>
+                     - Clamshell exercise<br/>
+                     - Quadriceps strengthening in sitting<br/>
+                     - Static bicycle<br/>
+                  </p>         
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Manual therapy
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Knee flexion mobilization<br/>
+                  </p>         
+               </div>
+            </div>
+            <div id="e" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy 5</span>
+                  <h1 class="display-6">HAMSTRING STRAIN</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Common in high speed sports<br/>
+                     - Occures when hamstring stretches when it is about to contract<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Manual muscle testing of hamstring<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy<br/>
+                     - TENS<br/>
+                     - Ultrasound<br/>
+                     - Cryotherapy<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Static quadriceps<br/>
+                     - Static hamstring<br/>
+                     - Bridging<br/>
+                     - Swiss ball hamstring curls<br/>
+                     - Prone plank<br/>
+                     - Single leg stance<br/>
+                     - Kinesiotaping<br/>
+                  </p>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock content %}
+

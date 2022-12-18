@@ -1,0 +1,215 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+        text-decoration: none;
+        color: white;
+      }
+      .jumbotron .lead a:hover{
+        color:#007bff;
+        text-decoration-line: underline;
+      }
+   </style>
+    <style>
+      @media (max-width: 602px) {
+          .jumbotron h1 {
+              font-size: 34px;
+          }
+          .jumbotron p{
+              font-size: 17px;
+          }
+          .jumbotron h4{
+              font-size: 18px;
+          }
+      }
+       </style>
+
+
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Bone & Muscles</h2>
+            <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Bone & Muscles</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+
+ <section class="faq about_bg">
+   <div class="container">
+
+     <div class="section-title">
+       <h2>Bone & Muscles</h2>
+       <p>
+        In this session we are focusing on the chronic muscles 
+        related pain conditions and tendon, ligament injuries.<br/> 
+        Degenerative conditions of bones.   
+      </p>
+     </div>
+     <div class="row">
+
+
+       <div class="col-md-4">
+        <div class="jumbotron text-white bg-dark">
+          <h1 class="display-4">Elbow</h1>
+          <p class="lead">
+            -<a href="{% url 'elbow' %}"> Elbow stiffness </a><br/>
+            -<a href="{% url 'elbow' %}"> Elbow sprain </a><br/>
+            -<a href="{% url 'elbow' %}"> Cubital tunnel syndrome </a><br/>
+            -<a href="{% url 'elbow' %}"> Tennis elbow </a><br/>
+            <br>
+          </p>
+          <hr class="my-4 bg-white">
+          <p>To know details about this topic </p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'elbow' %}" role="button">Read More</a>
+          </p>
+        </div>
+       </div>
+
+       <div class="col-md-4">
+        <div class="jumbotron text-white bg-dark">
+          <h1 class="display-4">Hip</h1>
+          <p class="lead">
+            -<a href="{% url 'hip' %}"> Hip Osteoarthritis</a><br/>
+            -<a href="{% url 'hip' %}"> Hip Labral Tear  </a><br/>
+            -<a href="{% url 'hip' %}"> Piriformis Syndrome </a><br/>
+            -<a href="{% url 'hip' %}"> Groin Strain </a><br/>
+            -<a href="{% url 'hip' %}"> Pelvic Girdle Pain </a><br/>
+          </p>
+          <hr class="my-4 bg-white">
+          <p>To know details about this topic </p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'hip' %}" role="button">Read More</a>
+          </p>
+        </div>
+       </div>
+
+       <div class="col-md-4">
+        <div class="jumbotron text-white bg-dark">
+          <h1 class="display-4">Ankle</h1>
+          <p class="lead">
+            -<a href="{% url 'ankle' %}"> Plantar Fascitis</a><br/>
+            -<a href="{% url 'ankle' %}"> Achilles Tendinitis</a><br/>
+            -<a href="{% url 'ankle' %}"> Ankle Sprain</a><br/>
+            <br/><br/>
+          </p>
+          <hr class="my-4 bg-white">
+          <p>To know details about this topic </p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'ankle' %}" role="button">Read More</a>
+          </p>
+        </div>
+       </div>
+      
+       <div class="col-md-4">
+        <div class="jumbotron text-white bg-dark">
+          <h1 class="display-4">Shoulder</h1>
+          <p class="lead">
+            -<a href="{% url 'shoulder' %}"> PA Shoulder </a><br/>
+            -<a href="{% url 'shoulder' %}"> Rotator cutt tear </a><br/>
+            -<a href="{% url 'shoulder' %}"> Impingement syndrome </a><br/>
+            -<a href="{% url 'shoulder' %}"> Shoulder instability </a><br/>
+            -<a href="{% url 'shoulder' %}"> SLAP lesion </a><br/>
+          </p>
+          <hr class="my-4 bg-white">
+          <p>To know details about this topic </p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'shoulder' %}" role="button">Read More</a>
+          </p>
+        </div>
+       </div>
+       
+       <div class="col-md-4">
+        <div class="jumbotron text-white bg-dark">
+          <h1 class="display-4">Wrist</h1>
+          <p class="lead">
+            -<a href="{% url 'wrist' %}"> Wrist sprain </a><br/>
+            -<a href="{% url 'wrist' %}"> Carpal tunnel syndrome </a><br/>
+            -<a href="{% url 'wrist' %}"> Wrist stiffnes </a><br/>
+            -<a href="{% url 'wrist' %}"> Thumb arthritis </a><br/>
+            -<a href="{% url 'wrist' %}"> De quervain's tenosynovits </a><br/>
+          </p>
+          <hr class="my-4 bg-white">
+          <p>To know details about this topic </p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'wrist' %}" role="button">Read More</a>
+          </p>
+        </div>
+       </div>
+       
+       <div class="col-md-4">
+        <div class="jumbotron text-white bg-dark">
+          <h1 class="display-4">Knee Joint</h1>
+          <p class="lead">
+            -<a href="{% url 'knee_joint' %}"> Anterior cruciate ligament injury </a><br/>
+            -<a href="{% url 'knee_joint' %}"> Meniscal tear </a><br/>
+            -<a href="{% url 'knee_joint' %}"> Ilio tibial band syndrome </a><br/>
+            -<a href="{% url 'knee_joint' %}"> Knee osteoarthritis </a><br/>
+            -<a href="{% url 'knee_joint' %}"> Hamstring strain </a><br/>
+          </p>
+          <hr class="my-4 bg-white">
+          <p>To know details about this topic </p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'knee_joint' %}" role="button">Read More</a>
+          </p>
+        </div>
+       </div>
+
+       <div class="col-md-4">
+        <div class="jumbotron text-white bg-dark">
+          <h1 class="display-4" style="font-size: 47px;padding-bottom: 11px;">Lumbar Spine</h1>
+          <p class="lead">
+            -<a href="{% url 'lumbar_spine' %}"> Lumbar spinal stenosis </a><br/>
+            -<a href="{% url 'lumbar_spine' %}"> Lumbar disc prolapse  </a><br/>
+            -<a href="{% url 'lumbar_spine' %}"> Lower cross syndrome </a><br/>
+          </p>
+          <hr class="my-4 bg-white">
+          <p>To know details about this topic </p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'lumbar_spine' %}" role="button">Read More</a>
+          </p>
+        </div>
+       </div>
+
+       <div class="col-md-4">
+        <div class="jumbotron text-white bg-dark">
+          <h1 class="display-4" style="font-size: 47px;padding-bottom: 11px;">
+            Head & Neck</h1>
+          <p class="lead">
+            -<a href="{% url 'head_neck' %}"> Cervical radiculopathy </a><br/>
+            -<a href="{% url 'head_neck' %}"> Cervicogenic headache /  </a><br/>
+            &nbsp;<a href="{% url 'head_neck' %}"> migraine  </a><br/>
+            -<a href="{% url 'head_neck' %}"> Stiff neck </a><br/>
+            -<a href="{% url 'head_neck' %}"> Upper cross syndrome </a><br/>
+          </p>
+          <hr class="my-4 bg-white">
+          <p>To know details about this topic </p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'head_neck' %}" role="button">Read More</a>
+          </p>
+        </div>
+       </div>
+       
+     </div>
+
+
+   </div>
+ </section>
+
+ 
+
+
+ </main>
+{% endblock content %}

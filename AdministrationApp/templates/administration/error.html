@@ -1,0 +1,38 @@
+{% for item3 in data3 %}
+    <section>
+      <div class="modal fade left modal-scrolling" id="sideModalBLWarningDemo{{ item3.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-side modal-bottom-left modal-notify modal-danger" role="document">
+          <div class="modal-content">
+            
+            <div class="modal-header">
+              <p class="heading"><strong>{{ item3.name | capfirst }} <span class="mx-1"> - </span>{{ item3.age }}</strong></p>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="white-text">x</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-9">
+                  <p class="card-text"><strong>Remark : {{ item3.remark | capfirst }}</strong>
+                      <hr>
+                      <p class="card-text"><strong>Mobile : {{ item3.mobile }}</strong>
+                        <p class="card-text"><strong>Other Contact : {{ item3.other_contact }}</strong>
+                  <p class="card-text"><strong>Booking Date : {{ item3.booking_date | date:"d-m-Y" }}</strong>
+                  <p class="card-text"><strong>Register Date : {{ item3.submit_date | date:"d-m-Y" }}</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer justify-content-center">
+              <button role="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal">
+                Close Details <i class="fas fa-times ml-1"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endfor %}

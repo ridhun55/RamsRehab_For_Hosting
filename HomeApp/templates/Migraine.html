@@ -1,0 +1,69 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+        text-decoration: none;
+        color: white;
+      }
+      .jumbotron .lead a:hover{
+        color:#007bff;
+        text-decoration-line: underline;
+      }
+   </style>
+    <style>
+      @media (max-width: 602px) {
+          .jumbotron h1 {
+              font-size: 34px;
+          }
+          .jumbotron p{
+              font-size: 17px;
+          }
+          .jumbotron h4{
+              font-size: 18px;
+          }
+      }
+       </style>
+
+
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Ear Balance</h2>
+            <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Ear Balance</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+
+ <section class="faq about_bg">
+   <div class="container">
+
+     <div class="section-title">
+       <h2>Ear Balance</h2>
+      <p>
+        Ram's Rehab is the first Physical therapy center in India
+        which focusing on the root cause of your ear balance and <br />
+        eradicating ear balance from your day to day life through proper
+        diet plan, Manual therapy and Therapeutic exercises.
+      </p>
+     </div>
+     
+   </div>
+ </section>
+
+ 
+
+
+ </main>
+{% endblock content %}

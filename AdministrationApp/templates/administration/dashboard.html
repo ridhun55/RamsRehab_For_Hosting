@@ -1,0 +1,193 @@
+
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+{% block content %}
+<main class="pt-5 mx-lg-5">
+   <div class="container-fluid mt-5">
+      {% if user.is_staff %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>Ram's Rehab Dashboard</span>
+               <span></span>
+            </h4>
+            {% if user.is_superuser %}
+            <span class="mb-2 mb-sm-0 pt-1">
+               Login Profile : <span class="pr-3 text-danger" style="text-transform: uppercase;"><b>Administrator</b></span>
+            </span>
+            {% else %}
+            <span class="mb-2 mb-sm-0 pt-1">
+               Login Profile : <span class="pr-3 text-danger" style="text-transform: uppercase;"><b>{{ user.first_name | capfirst }} {{ user.last_name | capfirst }}</b></span>
+            </span>
+            {% endif %}
+           
+         </div>
+      </div>
+      <div class="row wow fadeIn">
+         <div class="col-md-4">
+            <div class="card mb-4">
+               <div class="card-body">
+                  <div class="list-group list-group-flush">
+                     <span>Appointment</span>
+                     <a href="{% url 'quick_appointment_table' %}" class="list-group-item list-group-item-action waves-effect" style="padding-right: 0px;">
+                     <span class="badge badge-success badge-pill pull-right">{{ yF }} 
+                     </span>
+                     <span class="badge badge-danger badge-pill pull-right">{{ yT }} 
+                     </span>
+                     Quick Appointment
+                     </a>
+                     <a href="{% url 'appointment_table' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-success badge-pill pull-right">{% if xF %}{{ xF }}{% else %} 0 {% endif %}
+                     </span>
+                     <span class="badge badge-danger badge-pill pull-right">{% if xT %}{{ xT }}{% else %} 0 {% endif %}
+                     </span>
+                     Appointment
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="card mb-4">
+               <div class="card-body">
+                  <div class="list-group list-group-flush">           
+                     <span>Contact </span>
+                     <a href="{% url 'message_table' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-primary badge-pill pull-right">{% if msg %}{{ msg }}{% else %}0{% endif %}
+                     </span> Contact Us
+                     </a>
+                     <a href="{% url 'message_table' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-primary badge-pill pull-right">{% if msg %}{{ msg }}{% else %}0{% endif %}
+                     </span> Messages
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col-md-4">
+            <div class="card mb-4">
+               <div class="card-body">
+                  <div class="list-group list-group-flush">           
+                     <span>Notes</span>
+                     <a href="{% url 'add_todo' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-danger badge-pill pull-right">{{ todo_count }}
+                     </span> Todo List
+                     </a>
+                     <a target="_blank" href="{% url 'add_notes' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-primary badge-pill pull-right">{{ notes_count }}
+                     </span> Notes / Reference
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+         <div class="col-md-4">
+            <div class="card mb-4">
+               <div class="card-body">
+                  <div class="list-group list-group-flush">           
+                     <span>Shop Request</span>
+                     <a href="{% url 'shop_request' %}" class="list-group-item list-group-item-action waves-effect" style="padding-right: 0px;">
+                     <span class="badge badge-secondary badge-pill pull-right">{{ new_shop_count }}
+                     </span> New Request
+                     </a>
+                     <a href="{% url 'shop_request' %}" class="list-group-item list-group-item-action waves-effect">
+                        <span class="badge badge-danger badge-pill pull-right">{{ total_shop_count }}
+                        </span> Total Request
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+         
+         <div class="col-md-4">
+            <div class="card mb-4">
+               <div class="card-body">
+                  <div class="list-group list-group-flush">           
+                     <span>Bookings</span>
+                     <a href="{% url 'today' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-success badge-pill pull-right">{{today_count}}
+                     </span> Today Booking
+                     </a>
+                     <a href="{% url 'tomorrow' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-success badge-pill pull-right">{{tomorrow_count}}
+                     </span> Tomorrow Booking
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="card mb-4">
+               <div class="card-body">
+                  <div class="list-group list-group-flush">           
+                     <span>Google Meet</span>
+                     <a href="{% url 'add_google_meet' %}" class="list-group-item list-group-item-action waves-effect" style="padding-right: 0px;">
+                     <span class="badge badge-secondary badge-pill pull-right">{{ google_meet_count }}
+                     </span> Google Meet Links
+                     </a>
+                     <a href="{% url 'add_google_meet' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span ><br/>
+                     </span> 
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="card mb-4">
+               <div class="card-body">
+                  <div class="list-group list-group-flush">           
+                     <span>Login Permissions</span>
+                     <a href="{% url 'nurse_register' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-danger badge-pill pull-right">{{staff_count}}
+                     </span> Nurse
+                     </a>
+                     <a href="{% url 'nurse_register' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-primary badge-pill pull-right">{{blogger_count}}
+                     </span> Blogger
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="card mb-4">
+               <div class="card-body">
+                  <div class="list-group list-group-flush">           
+                     <span>Account Details</span>
+                     <a href="{% url 'add_account' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-danger badge-pill pull-right">{{staff_count}}
+                     </span> Income
+                     </a>
+                     <a href="{% url 'add_account' %}" class="list-group-item list-group-item-action waves-effect">
+                     <span class="badge badge-primary badge-pill pull-right">{{blogger_count}}
+                     </span> Expanse
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+         
+      </div>
+      {% else %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body text-center">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>You are not allowed here !!</span>
+            </h4>
+            <h5 class="my-2 mb-sm-0 pt-1">
+               <span>Please Login</span>
+            </h5>
+         </div>
+      </div>
+      {% endif %}
+   </div>
+</main>
+{% endblock %}
+

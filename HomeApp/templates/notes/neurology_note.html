@@ -1,0 +1,229 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+      text-decoration: none;
+      color: white;
+      }
+      .jumbotron .lead a:hover{
+      color:#007bff;
+      text-decoration-line: underline;
+      }
+      html{
+         scroll-behavior: smooth;
+      }
+      .jumbotron a{
+         text-decoration:none;
+      }
+   </style>
+    <style>
+      @media (max-width: 992px) {
+          .jumbotron h1 {
+              font-size: 28px;
+          }
+          .jumbotron p{
+              font-size: 15px;
+          }
+          .jumbotron a{
+              font-size: 15px;
+          }
+          .jumbotron h4{
+              font-size: 18px;
+          }
+      }
+       </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Brain & Spinal cord</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'neurology' %}">Brain & Spinal cord</a></li>
+               <li>Neurology</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section class="faq about_bg">
+      <div class="container">
+         <div class="section-title">
+            <h2>Neurology</h2>
+         </div>
+
+         <div class="container">
+            <div class="jumbotron text-dark bg-white">
+               <div style="text-decoration: none;" class="d-flex justify-content-around flex-wrap text-bold text-center">
+                  <a class="border-bottom p-3" href="#a">Stroke</a>
+                  <a class="border-bottom p-3" href="#b">Parkinson’s disease</a>
+                  <a class="border-bottom p-3" href="#c">Traumatic brain injury </a>
+                  <a class="border-bottom p-3" href="#d">Traumatic spinal cord injury </a>
+               </div>
+            </div>
+         </div>
+
+         <div class="row d-flex justify-content-center mx-auto">
+
+            <div id="a" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  1</span>
+                  <h1 class="display-6">Stroke</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -  Impaired blood supply to brain cells either by obstruction in blood flow or by rupture of blood vessels
+               <br/> -  Hemi paralysis and sensory loss respect to the location of injury
+               <br/> -  Impaired muscle tone
+               <br/> -   Present speech and language disorders
+               <br/> -  Perceptual and cognitive disorders
+               <br/> -  Difficulty in swallowing
+               <br/> -  Altered emotional status
+               <br/> -  Bladder and bowel dysfunction
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy <br/>
+                     - Electrical muscle stimulation<br/>
+                     - Dry needling
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -  Proprioceptive neuromuscular facilitation
+               <br/> -  Functional reeducation
+               <br/> -  Proprioception training
+               <br/> -  Brunnstrom approach
+               <br/> -  Roods approach
+               <br/> -  Vestibular training
+               <br/> -  Gait training
+               <br/> -  Balance training
+               <br/> -  Coordination training
+               <br/> -  Taping
+               <br/> -  Aerobic exercises
+               <br/> -  ADL training                  
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Manual
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Manual therapy 
+               <br/> - Breaking synergy patterns
+               <br/> - Weight transmission through affected side 
+                  </p>
+               </div>
+            </div>
+
+            <div id="b" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  2</span>
+                  <h1 class="display-6">Parkinson’s disease</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -   Progressive disease of the central nervous system
+               <br/> -   Disturbances in dopamine system of basal ganglia
+               <br/> -   More Commonly seen in older population
+               <br/> -   Rigid joints, slow movements, tremors
+               <br/> -   Postural instability presents in later stages
+               <br/> -   Sensory, sleep, mood disorders
+               <br/> -   Cognitive impairment
+               <br/> -   Difficulties in speaking, swallowing
+               <br/> -   Increased no. of steps per minute
+               <br/> -   Pill rolling movement of hands
+               <br/> -   Masked or expressionless face
+               <br/> -   Phantom pillow posture
+                  </p>
+                  
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -	Post isomatric relaxation
+               <br/> -	Reciprocal inhibition
+               <br/> -	Aerobic exercises
+               <br/> -	Balance training
+               <br/> -	Coordination training
+               <br/> -	Gait training
+               <br/> -	ADL training
+               <br/> -	Cycling
+               <br/> -	Functional reeducation                  
+                  </p>
+                  
+               </div>
+            </div>
+            
+            <div id="c" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  3</span>
+                  <h1 class="display-6">Traumatic brain injury </h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - 	Injury to brain parenchyma due to trauma
+               <br/> -	Appearance of premature reflexes during recovery period
+               <br/> -	Motor, sensory cognitive behavioral problems
+               <br/> -	Speech problems
+               <br/> -	Memmory problems
+               <br/> -	Muscle tone defects
+                  
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - 	Muscle tone correction
+               <br/> -	Brunnstrom approach
+               <br/> -	Roods approach
+               <br/> -	Vestibular training
+               <br/> -	Balance -coordination training
+               <br/> -	Gait training
+               <br/> -	PNF technique
+               <br/> -	Proprioception training
+               <br/> -	Aerobic exercise
+               <br/> -	Taping
+               <br/> -	Static cycling
+               <br/> -	ADL training
+                  </p>
+               </div>
+            </div>
+
+            <div id="d" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  4</span>
+                  <h1 class="display-6">Traumatic spinal cord injury </h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Injury to the spinal cord from foramen magnum to cauda equina
+               <br/> -	Quadriplegia occures in cervical level lesions 
+               <br/> -	Paraplegia for lumbar level lesions
+               <br/> -	Bowel and bladder problems
+               <br/> -	Motor and sensory loss below the level of lesion
+               <br/> -	Muscle tone changes                  
+                  </p>
+
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - 	Strengthening of preserved muscles for the use of assistive aids
+               <br/> -  Functional mobility and bed mobility training with use of available muscles
+               <br/> -  Sensory reeducation in incomplete cut injuries
+               <br/> -  Flexibility exercises
+               <br/> -  Gait training using assistive aids                  
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock content %}
+

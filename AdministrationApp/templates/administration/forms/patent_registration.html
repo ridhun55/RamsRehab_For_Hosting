@@ -1,0 +1,89 @@
+
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+{% block content %}
+<main class="pt-5 mx-lg-5">
+   <div class="container-fluid mt-5">
+      {% if user.is_staff %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>Patient Registration Form</span>
+            </h4>
+            {% include 'administration/patient_searchbox.html'%}
+         </div>
+      </div>
+      <form action="" method="POST">
+         {% csrf_token %}
+         <div class="row wow fadeIn">
+            <div class="col-md-6">
+               <div class="card mb-4">
+                  <div class="card-header text-white bg-primary">Patient Details</div>
+                  <div class="card-body">
+                     <div class="list-group list-group-flush">
+                        <div class="form-outline">
+                           <label class="form-label" for="typeText1">Name <span style="color: red;">*</span></label>
+                           <input name="name" type="text" id="typeText1" class="form-control" />
+                        </div>
+                        <div class="form-outline mt-2">
+                           <label class="form-label" for="typeText2">Age</label>
+                           <input name="age" type="text" id="typeText2" class="form-control" />
+                        </div>
+                        <div class="form-outline mt-1">
+                           <label class="form-label" for="textAreaExample">Remark</label>
+                           <textarea name="remark" class="form-control" id="textAreaExample" rows="4"></textarea>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="card mb-4">
+                  <div class="card-header text-white bg-primary">Contact Details & Booking</div>
+                  <div class="card-body">
+                     <div class="list-group list-group-flush">
+                        <div class="form-outline">
+                           <label class="form-label" for="typeText3">Place</label>
+                           <input name="place" type="text" id="typeText3" class="form-control" />
+                        </div>
+                        <div class="form-outline mt-2">
+                           <label class="form-label" for="typeText4">Moblie No <span style="color: red;">*</span></label>
+                           <input name="mobile" type="text" id="typeText4" class="form-control" />
+                        </div>
+                        <div class="form-outline mt-2">
+                           <label class="form-label" for="typeText5">Other Contact</label>
+                           <input name="other_contact" type="text" id="typeText5" class="form-control" />
+                        </div>
+                        <div class="form-outline mt-2 pb-2">
+                           <label class="form-label" for="typeText6">Booking Date <span style="color: red;">*</span></label>
+                           <input name="booking_date" type="date" id="typeText6" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-8 d-flex  justify-content-center mx-auto" >
+               <div class=" mb-5">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+               </div>
+            </div>
+         </div>
+      </form>
+      {% else %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body text-center">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>You are not allowed here !!</span>
+            </h4>
+            <h5 class="my-2 mb-sm-0 pt-1">
+               <span>Please Login</span>
+            </h5>
+         </div>
+      </div>
+      {% endif %}
+   </div>
+</main>
+{% endblock %}
+

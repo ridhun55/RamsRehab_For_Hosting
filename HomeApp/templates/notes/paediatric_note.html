@@ -1,0 +1,170 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+      text-decoration: none;
+      color: white;
+      }
+      .jumbotron .lead a:hover{
+      color:#007bff;
+      text-decoration-line: underline;
+      }
+      html{
+         scroll-behavior: smooth;
+      }
+      .jumbotron a{
+         text-decoration:none;
+      }
+   </style>
+    <style>
+      @media (max-width: 992px) {
+          .jumbotron h1 {
+              font-size: 28px;
+          }
+          .jumbotron p{
+              font-size: 15px;
+          }
+          .jumbotron a{
+              font-size: 15px;
+          }
+          .jumbotron h4{
+              font-size: 18px;
+          }
+      }
+       </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Mom and Child</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'pediatrics' %}">Mom and Child</a></li>
+               <li>Paediatric</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section class="faq about_bg">
+      <div class="container">
+         <div class="section-title">
+            <h2>Paediatric</h2>
+         </div>
+
+         <div class="container">
+            <div class="jumbotron text-dark bg-white">
+               <div style="text-decoration: none;" class="d-flex justify-content-around flex-wrap text-bold text-center">
+                  <a class="border-bottom p-3" href="#a">Autism spectrum disorders </a>
+                  <a class="border-bottom p-3" href="#b">Sensory integration disorders </a>
+                  <a class="border-bottom p-3" href="#c">Cerebral palsy </a>
+               </div>
+            </div>
+         </div>
+
+         <div class="row d-flex justify-content-center mx-auto">
+
+            <div id="a" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  1</span>
+                  <h1 class="display-6">Autism spectrum disorders</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -  Autism spectrum disorder is a condition related to brain development
+               <br/> -  impacts how a person perceives and socializes with others
+               <br/> -  causing problems in social interaction and communication.
+               <br/> -  limited and repetitive patterns of behavior. 
+               <br/> -  Autism spectrum disorder begins in early childhood
+               <br/> -  signs of autism spectrum disorder in early infancy, such as reduced eye contact, lack of response to their name or indifference to caregivers
+               <br/> -  Some children have high IQ while some have poor IQ and learning defects
+                  
+                  </p>
+
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -	Milestone training
+               <br/> -	Functional reeducation
+               <br/> -	Brock string exercises for visual accomodation
+               <br/> -	Proprioception training
+               <br/> -	Strength training
+               <br/> -	Flexibility exercises                                   
+                  </p>
+               </div>
+            </div>
+
+            <div id="b" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  2</span>
+                  <h1 class="display-6">Sensory integration disorders </h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -  Sensory integration dysfunction is when a child is not able to manage the information coming in through their senses. 
+               <br/> -  This may interfere with learning, playing, social interaction, and completing daily activities of life.
+                  </p>
+                  
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -	Milestone training
+               <br/> -	Play therapy
+               <br/> -	Functional reeducation
+               <br/> -	Proprioceptive training
+               <br/> -	Brock string exercises for visual accomodation
+               <br/> -	Balance training
+               <br/> -	Coordination training
+               <br/> -	Aerobic exercises
+               <br/> -	Spider cage therapy
+                                  
+                  </p>
+               </div>
+            </div>
+            
+            <div id="c" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  3</span>
+                  <h1 class="display-6">Cerebral palsy </h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Non progressive damage to the immature brain 
+               <br/>-	Damage can occure during pregnancy period, during birth or after birth
+               <br/>-	Motor&sensory disturbances
+               <br/>-	Presents Hypotonic or hypertonic muscle tone according to the type of disease
+               <br/>-	Speech, intellectual, cognitive and behavioral defects
+               <br/>-	Impaired posture and gate
+               <br/>-  Associated  orthopedic abnormalities
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -	Milestone training
+               <br/> -	Functional reeducation
+               <br/> -	Stretching
+               <br/> -	Balance training
+               <br/> -	Coordination training
+               <br/> -	Brock string exercise for visual accomodation
+               <br/> -	Gait training
+               <br/> -	Aerobic exercises
+               <br/> -	Peg board exercises
+               <br/> -  Post isometric relaxation exercises
+                  </p>
+               </div>
+            </div>
+
+            
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock content %}
+

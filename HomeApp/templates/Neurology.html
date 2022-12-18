@@ -1,0 +1,87 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+        text-decoration: none;
+        color: white;
+      }
+      .jumbotron .lead a:hover{
+        color:#007bff;
+        text-decoration-line: underline;
+      }
+   </style>
+    <style>
+      @media (max-width: 602px) {
+          .jumbotron h1 {
+              font-size: 34px;
+          }
+          .jumbotron p{
+              font-size: 17px;
+          }
+          .jumbotron h4{
+              font-size: 18px;
+          }
+      }
+       </style>
+
+
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Brain & Spinal cord</h2>
+            <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Brain & Spinal cord</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+
+ <section class="faq about_bg">
+   <div class="container">
+
+     <div class="section-title">
+       <h2>Brain and Spinal cord</h2>
+       <p>In this session we are focusing on Neuroplasticity and motor 
+         relearning techniques used for adult neurological conditions <br/>
+         like stroke, Parkinson’s disease, brain and spinal cord traumatic 
+         conditions</p>
+     </div>
+     <div class="row">
+
+      <div class="col-md-4">
+       <div class="jumbotron text-white bg-dark">
+         <h1 class="display-4">Neurology</h1>
+         <p class="lead">
+           -<a href="{% url 'neurology_note' %}"> Stroke </a><br/>
+           -<a href="{% url 'neurology_note' %}"> Parkinson’s disease </a><br/>
+           -<a href="{% url 'neurology_note' %}"> Traumatic brain injury </a><br/>
+           -<a href="{% url 'neurology_note' %}"> Traumatic spinal cord injury </a><br/>
+           <br>
+         </p>
+         <hr class="my-4 bg-white">
+         <p>To know about Neurological Diseases </p>
+         <p class="lead">
+           <a class="btn btn-primary btn-lg" href="{% url 'neurology_note' %}" role="button">Read More</a>
+         </p>
+       </div>
+      </div>
+     
+      </div>
+   </div>
+ </section>
+
+ 
+
+
+ </main>
+{% endblock content %}

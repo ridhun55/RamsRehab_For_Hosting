@@ -1,0 +1,266 @@
+
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+{% block content %}
+<main class="pt-5 mx-lg-5">
+   <div class="container-fluid mt-5">
+    {% if user.is_staff %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>Tomorrow Booking Details</span>
+            </h4>
+         </div>
+      </div>
+      <div class="row wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+         {% if data1 or data2 or data3 %}
+         <div class="col-md-12 mb-4">
+            <div class="card">
+               <div class="card-header bg-primary text-white d-flex justify-content-between">
+                  <span>Todays Booking Details</span> <span>   Shows Only Readed Details</span>
+               </div>
+               <div class="card-body">
+                  <table class="table table-hover">
+                     <thead class="blue lighten-4 text-center">
+                        <tr>
+                           <th>Roll</th>
+                           <th>Name</th>
+                           <th>Age</th>
+                           <th>Mobile</th>
+                           <th>Place</th>
+                           <th>Booking Date</th>
+                           <th>Details</th>
+                           <th>Edit</th>
+                           <th>Delete</th>
+                        </tr>
+                     </thead>
+                     <tbody class="text-center">
+                        {% for item1 in data1 %}
+                        <tr>
+                           <th>
+                              {% if item1.flag %}
+                              <span class="badge badge-danger badge-pill pull-right">{{ forloop.revcounter }}</span>
+                              {% else %}
+                              <span class="badge badge-success badge-pill pull-right">{{ forloop.revcounter }}</span>
+                              {% endif %}
+                           </th>
+                           <td>{{ item1.name |capfirst }}</td>
+                           <td>{{ item1.age }}</td>
+                           <td>{{ item1.mobile }}</td>
+                           <td>{{ item1.place |capfirst }}</td>
+                           <td>{{ item1.booking_date | date:"d-m-Y"}}</td>
+                           <td>
+                              <a class="text-info" data-toggle="modal" data-target="#sideModalBLWarningDemo{{item1.id}}">
+                              <strong>Details</strong>
+                              </a>
+                           </td>
+                           <td>
+                              <a class="green-text" href="{% url 'patent_edit' item1.id %}"><strong><i class="fas fa-pencil-alt"></i></strong></a>
+                           </td>
+                           <td>
+                              <a class="red-text" href="{% url 'patent_delete' item1.id %}"><strong><i class="fas fa-trash-alt"></i></strong></a>
+                           </td>
+                        </tr>
+                        {% endfor %}
+                        {% for item2 in data2 %}
+                        <tr>
+                           <th>
+                              {% if item2.flag %}
+                              <span class="badge badge-danger badge-pill pull-right">{{ forloop.revcounter }}</span>
+                              {% else %}
+                              <span class="badge badge-success badge-pill pull-right">{{ forloop.revcounter }}</span>
+                              {% endif %}
+                           </th>
+                           <td>{{ item2.name |capfirst }}</td>
+                           <td>{{ item2.age }}</td>
+                           <td>{{ item2.mobile }}</td>
+                           <td>{{ item2.place |capfirst }}</td>
+                           <td>{{ item2.booking_date | date:"d-m-Y"}}</td>
+                           <td>
+                              <a class="text-info" data-toggle="modal" data-target="#sideModalBLWarningDemo{{item2.id}}">
+                              <strong>Details</strong>
+                              </a>
+                           </td>
+                           <td>
+                              <a class="green-text" href="{% url 'quick_appointment_edit' item2.id %}"><strong><i class="fas fa-pencil-alt"></i></strong></a>
+                           </td>
+                           <td>
+                              <a class="red-text" href="{% url 'quick_appointment_edit' item2.id %}"><strong><i class="fas fa-trash-alt"></i></strong></a>
+                           </td>
+                        </tr>
+                        {% endfor %}
+                        {% for item3 in data3 %}
+                        <tr>
+                           <th>
+                              {% if item3.flag %}
+                              <span class="badge badge-danger badge-pill pull-right">{{ forloop.revcounter }}</span>
+                              {% else %}
+                              <span class="badge badge-success badge-pill pull-right">{{ forloop.revcounter }}</span>
+                              {% endif %}
+                           </th>
+                           <td>{{ item3.name |capfirst }}</td>
+                           <td>{{ item3.age }}</td>
+                           <td>{{ item3.mobile }}</td>
+                           <td>{{ item3.place |capfirst }}</td>
+                           <td>{{ item3.booking_date | date:"d-m-Y"}}</td>
+                           <td>
+                              <a class="text-info" data-toggle="modal" data-target="#sideModalBLWarningDemo{{item3.id}}">
+                              <strong>Details</strong>
+                              </a>
+                           </td>
+                           <td>
+                              <a class="green-text" href="{% url 'appointment_edit' item3.id %}"><strong><i class="fas fa-pencil-alt"></i></strong></a>
+                           </td>
+                           <td>
+                              <a class="red-text" href="{% url 'appointment_edit' item3.id %}"><strong><i class="fas fa-trash-alt"></i></strong></a>
+                           </td>
+                        </tr>
+                        {% endfor %}
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-12 mb-4">
+            <div class="card">
+               <div class=" d-flex card-body justify-content-between mx-auto">
+                  <h6 class="mr-5"><span class="badge badge-danger badge-pill pull-right">1</span> Not Readed Data</h6>
+                  <h6><span class="badge badge-success badge-pill pull-right">1</span> Readed Data</h6>
+               </div>
+            </div>
+         </div>
+         {% else %}
+         <div class="col-md-12 mb-4">
+            <div class="card">
+               <div class="card-body text-center">
+                  <h4> No Details Found..</h4>
+                  <p></p>
+                  <a class="btn btn-sm btn-outline-primary" href="{% url 'patent_registration' %}">Register Now</a>
+               </div>
+            </div>
+         </div>
+         {% endif %}
+      </div>
+      {% else %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body text-center">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>You are not allowed here !!</span>
+            </h4>
+            <h5 class="my-2 mb-sm-0 pt-1">
+               <span>Please Login</span>
+            </h5>
+         </div>
+      </div>
+      {% endif %}
+   </div>
+   <!-- Details Section -->
+   {% if data1 or data2 or data3 %}
+   {% for item1 in data1 %}
+   <section>
+      <div class="modal fade left modal-scrolling" id="sideModalBLWarningDemo{{ item1.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog modal-side modal-bottom-left modal-notify modal-danger" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <p class="heading"><strong>{{ item1.name | capfirst }} <span class="mx-1"> - </span>{{ item1.age }}</strong></p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" class="white-text">x</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-9">
+                        <p class="card-text"><strong>Remark : {{ item1.remark | capfirst }}</strong>
+                        <hr>
+                        <p class="card-text"><strong>Mobile : {{ item1.mobile }}</strong>
+                        <p class="card-text"><strong>Other Contact : {{ item1.other_contact }}</strong>
+                        <p class="card-text"><strong>Booking Date : {{ item1.booking_date | date:"d-m-Y" }}</strong>
+                        <p class="card-text"><strong>Register Date : {{ item1.submit_date | date:"d-m-Y" }}</strong>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer justify-content-center">
+                  <button role="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal">
+                  Close Details <i class="fas fa-times ml-1"></i>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   {% endfor %}
+   {% for item2 in data2 %}
+   <section>
+      <div class="modal fade left modal-scrolling" id="sideModalBLWarningDemo{{ item2.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog modal-side modal-bottom-left modal-notify modal-danger" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <p class="heading"><strong>{{ item2.name | capfirst }} <span class="mx-1"> - </span>{{ item2.age }}</strong></p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" class="white-text">x</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-9">
+                        <p class="card-text"><strong>Remark : {{ item2.remark | capfirst }}</strong>
+                        <hr>
+                        <p class="card-text"><strong>Mobile : {{ item2.mobile }}</strong>
+                        <p class="card-text"><strong>Other Contact : {{ item2.other_contact }}</strong>
+                        <p class="card-text"><strong>Booking Date : {{ item2.booking_date | date:"d-m-Y" }}</strong>
+                        <p class="card-text"><strong>Register Date : {{ item2.submit_date | date:"d-m-Y" }}</strong>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer justify-content-center">
+                  <button role="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal">
+                  Close Details <i class="fas fa-times ml-1"></i>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   {% endfor %}
+   {% for item3 in data3 %}
+   <section>
+      <div class="modal fade left modal-scrolling" id="sideModalBLWarningDemo{{ item3.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog modal-side modal-bottom-left modal-notify modal-danger" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <p class="heading"><strong>{{ item3.name | capfirst }} <span class="mx-1"> - </span>{{ item3.age }}</strong></p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" class="white-text">x</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-9">
+                        <p class="card-text"><strong>Remark : {{ item3.remark | capfirst }}</strong>
+                        <hr>
+                        <p class="card-text"><strong>Mobile : {{ item3.mobile }}</strong>
+                        <p class="card-text"><strong>Other Contact : {{ item3.other_contact }}</strong>
+                        <p class="card-text"><strong>Booking Date : {{ item3.booking_date | date:"d-m-Y" }}</strong>
+                        <p class="card-text"><strong>Register Date : {{ item3.submit_date | date:"d-m-Y" }}</strong>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer justify-content-center">
+                  <button role="button" class="btn btn-danger waves-effect waves-light" data-dismiss="modal">
+                  Close Details <i class="fas fa-times ml-1"></i>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   {% endfor %}
+   {% endif %}
+</main>
+{% endblock %}
+

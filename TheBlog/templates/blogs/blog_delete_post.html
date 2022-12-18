@@ -1,0 +1,140 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} delete Post {% endblock %}
+{% block content %}
+<main id="main">
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .delete_button{
+      background: #f00808;
+      border: 0;
+      padding: 10px 35px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 50px;
+      cursor: pointer;
+      -webkit-appearance: button;
+      text-transform: none;
+      overflow: visible;
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      text-align: center !important;
+      font-weight: 400;
+      }
+      .submit_button{
+      background: #1977cc;
+      border: 0;
+      padding: 10px 35px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 50px;
+      cursor: pointer;
+      -webkit-appearance: button;
+      text-transform: none;
+      overflow: visible;
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      text-align: center !important;
+      font-weight: 400;
+   }
+   </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Delete Blog Post</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li>Blogs</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+
+
+
+   <section class="inner-page about_bg">
+      <div class="container ">
+         <div class="d-flex justify-content-between  mx-auto">
+            <div>
+               <p>Post Date : {{ post.post_date | date:'d-m-Y' }}</p>
+            </div>
+            <div>
+               <p>Category : <a href="{% url 'category' post.category|slugify %}">{{ post.category | capfirst  }}</a></p>
+            </div>
+         </div>
+         {% if user.is_authenticated %}
+            {% if user.id == post.author.id %}
+               <div class="section-title">
+                  <div style="font-size: xx-large;color: #f00808; margin-bottom: 10px;">
+                     <i class="icofont-ui-delete"></i>
+                  </div>
+                  <h2 class="text-danger">Delete "{{ post.title }}" ?!</h2>
+                  <p>Are you sure want to premenently remove this blog post ?!</p>
+                  
+                  <div class="col-md-8  mx-auto">
+                     <div class="card mt-3">
+                        <div class="card-header">
+                        Blog Details
+                        </div>
+                        <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                           <p>Title : {{ post.title }}</p>
+                           <p>Auther : {{ post.author.first_name }} {{ post.author.last_name }}</p>
+                           <footer class="blockquote-footer"><cite title="Source Title">Category : {{ post.category | capfirst  }}</cite></footer>
+                           <footer class="blockquote-footer"><cite title="Source Title">Date : {{ post.post_date | date:'d-m-Y' }}</cite></footer>
+                        </blockquote>
+                        </div>
+                     </div>
+                  </div>
+                  <form method="POST">
+                     {% csrf_token %}
+                     <button type="submit" class="delete_button mt-3"><i class="icofont-ui-delete"></i> Delete Post</button>
+                  </form>
+               </div>
+            {% else %}
+            <div class="section-title">
+               <div style="font-size: xxx-large;color: #f00808; margin-bottom: 10px;">
+                  <i class="icofont-exclamation-tringle"></i>
+               </div>
+               <h2 class="text-danger">You Can't Allow here..!!</h2>
+               <p>You can't delete post ..Only the Auther can delete the post.. Please login..</p>
+               <a href="{% url 'login' %}">
+                  <button class="submit_button mt-3"><i class="icofont-login"></i> Login</button>
+               </a>
+               <a href="{% url 'home' %}">
+                  <button class="submit_button mt-3"><i class="icofont-home"></i> Home</button>
+               </a>
+            </div>
+            {% endif %}
+         {% else %}
+            <div class="section-title">
+               <div style="font-size: xxx-large;color: #f00808; margin-bottom: 10px;">
+                  <i class="icofont-exclamation-tringle"></i>
+               </div>
+               <h2 class="text-danger">You Can't Allow here..!!</h2>
+               <p>You can't delete post .. Please login..</p>
+               <a href="{% url 'login' %}">
+                  <button class="submit_button mt-3"><i class="icofont-login"></i> Login</button>
+               </a>
+               <a href="{% url 'home' %}">
+                  <button class="submit_button mt-3"><i class="icofont-home"></i> Home</button>
+               </a>
+            </div>
+         {% endif %}
+      </div>
+   </section>
+
+
+</main>
+{% endblock content %}
+

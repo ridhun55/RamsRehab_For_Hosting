@@ -1,0 +1,295 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+      text-decoration: none;
+      color: white;
+      }
+      .jumbotron .lead a:hover{
+      color:#007bff;
+      text-decoration-line: underline;
+      }
+      html{
+      scroll-behavior: smooth;
+      }
+      .jumbotron a{
+      text-decoration:none;
+      }
+   </style>
+ 
+ <style>
+   @media (max-width: 992px) {
+       .jumbotron h1 {
+           font-size: 28px;
+       }
+       .jumbotron p{
+           font-size: 15px;
+       }
+       .jumbotron a{
+           font-size: 15px;
+       }
+       .jumbotron h4{
+           font-size: 18px;
+       }
+   }
+    </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Musculoskeletal</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'musculoskeletal' %}">Musculoskeletal</a></li>
+               <li>Shoulder</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section class="faq about_bg">
+      <div class="container">
+         <div class="section-title">
+            <h2>Shoulder</h2>
+         </div>
+         <div class="container">
+            <div class="jumbotron text-white bg-white">
+               <div style="text-decoration: none;" class="d-flex justify-content-around flex-wrap text-bold text-center">
+                  <a class="border-bottom p-3" href="#a"> PA Shoulder</a><br/>
+                  <a class="border-bottom p-3" href="#b"> Rotator cutt tear  </a><br/>
+                  <a class="border-bottom p-3" href="#c"> Impingement syndrome </a><br/>
+                  <a class="border-bottom p-3" href="#d"> Shoulder instability </a><br/>
+                  <a class="border-bottom p-3" href="#e"> SLAP lesion </a>
+               </div>
+            </div>
+         </div>
+         <div class="row mx-auto justify-content-center">
+            <div id="a" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  1</span>
+                  <h1 class="display-6">PA Shoulder</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Can't take objects from overhead<br/>
+                     - Difficulty in putting on shirt/jacket <br/>
+                     - Night and morning pain stiffness <br/>
+                     - Trouble sleeping<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - External rotation lag test<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy<br/>
+                     - TENS<br/>
+                     - MFR<br/>
+                     - Dry Needle stimulation  
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Pendular exercise<br/>
+                     - Closed chain shoulder flexion stretch<br/>
+                     - seepers stretch<br/>
+                     - External rotation stretch with wand<br/>
+                     - Horizontal addiction stretch<br/>
+                     <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                        Manual therapy
+                     </h4>
+                     <p class="lead pl-4 py-2">
+                        - Shoulder mobiliation<br/>
+                        - Shoulder relaxation<br/>
+                        - Post isometric relaxation<br/>
+            
+                  </p>
+               </div>
+            </div>
+            <div id="b" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  2</span>
+                  <h1 class="display-6">Rotator cuff tear</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Shoulder pain<br/>
+                     - Stiffness <br/>
+                     - Weakness of musceles  <br/>
+                     - Brisk shoulder movement with crepitus<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Shoulder MMT<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy<br/>
+                     - Electrical stimulation<br/>
+                     - Ultrasound+TENs combo<br/>
+                     - Dry Needle stimulation  
+                  </p>
+                  
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Rotator isometrics<br/>
+                     - Pendular exercise<br/>
+                     - Scapular setting<br/>
+                     - Prone T<br/>
+                     - Prone Y<br/>
+                     - prone lift off<br/>
+            
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Manual therapy
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - KT Taping<br/>
+             </p>
+                  
+               </div>
+            </div>
+            <div id="c" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  3</span>
+                  <h1 class="display-6">Impingement syndrome</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Pain on overhead activities<br/>
+                     - Night pain <br/>
+                     - Weakness of musceles  <br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Arc of pain<br/>
+                     - Hawkins kennedy test<br/>
+                     - Neer test
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy<br/>
+                     - Ultrasound TENS combo<br/>
+                     - Dry Needle stimulation<br/>
+                     - Therapeutic exercise<br/>
+                     - Thoracic extension on form roll<br/>
+                     - Wall slide<br/>
+                     - Scapular stabilization exercise<br/>
+                     - Prone lift off<br/>
+                     - rotator cuff strengthening<br/>
+            
+                  </p>
+         c
+                  </p>
+                  
+               </div>
+            </div>
+            <div id="d" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  4</span>
+                  <h1 class="display-6">Shoulder dislocation/instability</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Pain on throwing activities<br/>
+                     - Recurrent dilocation of shoulder <br/>
+                     - Fear of something happens during activities<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Anterior apprehension test<br/>
+         
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy<br/>
+                     - EMS
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Scapular setting<br/>
+                     - Rotor isometric<br/>
+                     - Prone T<br/>
+                     - Prone Y<br/>
+                     - Quadripod ball rolls<br/>
+                     - Rotator cuff strengthening theraband<br/>
+                     - KT Taping
+                  </p>
+                  
+               </div>
+            </div>
+            <div id="e" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  5</span>
+                  <h1 class="display-6">SLAP Lesion</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Sensation of clicking and popping with shoulder movement<br/>
+                     - Shoulder pain and Weakness <br/>
+                     - Inability to lie on effected shoulder<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - O'Brien test<br/>
+                     - Biceps prrovocation test<br/>
+         
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy<br/>
+                     - EMS Rotator cuff<br/>
+                     - MFR poterior muscles<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Sleepers stretch<br/>
+                     - Rotator isometrics<br/>
+                     - Serratus punch<br/>
+                     - Resisted External rotation<br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                  Manual therapy
+               </h4>
+               <p class="lead pl-4 py-2">
+                  - Shoulder relaxation<br/>
+                  - Shoulder mobilisation<br/>
+                  - KT Taping<br/>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock content %}
+

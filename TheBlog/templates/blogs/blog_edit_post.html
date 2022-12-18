@@ -1,0 +1,133 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Edit Blog Post {% endblock %}
+{% block content %}
+<main id="main">
+   <style>
+      .appointment-bg{
+      background: url("{% static 'assets/img/logo/logo_light.png' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+   </style>
+   <style>
+      #postform p{
+      display: flex;
+      }
+      #postform label{
+      margin-right: 10px;
+      padding:5px 10px 0 10px;
+      width: 200px;
+      max-width: 200px;
+      vertical-align: middle;
+      }
+      #postform input select{
+      margin: 10px;
+      padding: 10px;
+      width: 400px;
+      max-width: 500px;
+      }
+      #postform .django-ckeditor-widget{
+      margin-bottom: 40px;
+      }
+      #postform #id_snippet{
+      margin-bottom: 40px;
+      }
+      #postform #id_header_image {
+      margin-bottom: 40px;
+      }
+      .submit_button{
+      background: #1977cc;
+      border: 0;
+      padding: 10px 35px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 50px;
+      cursor: pointer;
+      -webkit-appearance: button;
+      text-transform: none;
+      overflow: visible;
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      text-align: center !important;
+      font-weight: 400;
+      }
+   </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Edit Blog Post</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li>Blogs</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section id="Appointment" class="contact ">
+      <div class="container">
+         {% if user.id == post.author.id %}
+         <div class="section-title">
+            <div style="font-size: xx-large; margin-bottom: 10px;">
+               <i class="icofont-edit-alt"></i>
+            </div>
+            <h2>Edit Blog Post</h2>
+         </div>
+         {% else %}
+         <div class="section-title">
+            <div style="font-size: xxx-large;color: #f00808; margin-bottom: 10px;">
+               <i class="icofont-exclamation-tringle"></i>
+            </div>
+            <h2 class="text-danger">You are not allowed here..!!</h2>
+            <p>Only the Auther can Edit the post.. Please login</p>
+            <p></p>
+            <a href="#">
+               <button class="submit_button mt-3"><i class="icofont-login"></i> Login</button>
+            </a>
+            <a href="{% url 'home' %}">
+               <button class="submit_button mt-3"><i class="icofont-home"></i> Home</button>
+            </a>
+         </div>
+         {% endif %}
+         <div class="container ">
+            <div class="row mt-3">
+               <div class="col-lg-12 mt-5 mt-lg-0">
+                  {% if user.is_authenticated %}
+                  {% if user.id == post.author.id %}
+                  <form id="postform"  method="POST" enctype="multipart/form-data">
+                     {% csrf_token %}
+                     {{ form.media }}
+                     <div class="col-md-8 text-center mx-auto">
+                        {{ form.as_p }}
+                        <button type="submit" class="submit_button">Update Post</button>
+                     </div>
+                  </form>
+                  {% else %}
+                  <div class="section-title">
+                     <div style="font-size: xxx-large;color: #f00808; margin-bottom: 10px;">
+                        <i class="icofont-exclamation-tringle"></i>
+                     </div>
+                     <h2 class="text-danger">You are not allowed here..!!</h2>
+                     <p>Only the Auther can Edit the post.. Please login</p>
+                     <p></p>
+                     <a href="#">
+                        <button class="submit_button mt-3"><i class="icofont-login"></i> Login</button>
+                     </a>
+                     <a href="{% url 'home' %}">
+                        <button class="submit_button mt-3"><i class="icofont-home"></i> Home</button>
+                     </a>
+                  </div>
+                  {% endif %}
+                  {% endif %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock content %}
+

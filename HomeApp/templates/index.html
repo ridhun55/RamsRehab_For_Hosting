@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% include "hero.html" %}
+
+        <main id="main">
+            
+            {% include "why_choose_us.html" %}
+            {% include "quick_booking.html" %}
+            {% include "doctors_profile.html" %}
+            {% include "feedback.html" %}          
+
+        </main>
+
+{% endblock content %}

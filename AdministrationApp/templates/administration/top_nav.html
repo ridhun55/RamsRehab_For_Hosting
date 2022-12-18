@@ -1,0 +1,103 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+   <div class="container-fluid">
+      <a class="navbar-brand waves-effect" href="{% url 'administration_home' %}">
+      <span style="color: #000000;font-family: 'Play', sans-serif;font-weight: 600;">
+         <b>Ram's Rehab</b></span>
+      </a>
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <!-- Left -->
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item mr-2">
+               <a class="nav-link waves-effect" href="{% url 'administration_home' %}">Home
+               </a>
+            </li>
+            <li class="nav-item mr-2">
+               {% if todayFlag %}
+                  <a class="nav-link text-white bg-success waves-effect" href="{% url 'today' %}">Today</a>
+               {% else %}  
+                  <a class="nav-link waves-effect" href="{% url 'today' %}">Today</a>
+               {% endif %}
+            </li>
+            <li class="nav-item mr-2">
+               {% if tomorrowFlag %}
+                  <a class="nav-link text-white bg-primary waves-effect" href="{% url 'tomorrow' %}">Tomorrow</a>
+               {% else %}  
+                  <a class="nav-link waves-effect" href="{% url 'tomorrow' %}">Tomorrow</a>
+               {% endif %}
+            </li>
+            
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                 Website Settings
+               </a>
+               <ul style="border: solid 1px #00000054;border-top: solid 1px #ffffff54;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li class="nav-item mx-1">
+                     <a class="nav-link waves-effect" href="{% url 'add_doctors_profile' %}"><b>Add Doctors Profile</b></a>
+                  </li>
+                  <li class="nav-item mx-1">
+                     <a class="dropdown-item waves-effect" href="{% url 'nurse_register' %}"><b>Nurse / Staff Registration</b></a>
+                  </li>
+                  <li class="nav-item mx-1">
+                     <a class="nav-link waves-effect" href="{% url 'add_gallery_image' %}"><b>Add Gallery Images</b></a>
+                  </li>
+                  <li class="nav-item mx-1">
+                     <a class="nav-link waves-effect" href="{% url 'add_shop_item' %}"><b>Add Shop Items</b></a>
+                  </li>
+                  <li class="nav-item mx-1">
+                     <a class="nav-link waves-effect" href="{% url 'add_feedback' %}"><b>Add Feedback</b></a>
+                  </li>
+                  <li class="nav-item mx-1">
+                     <a class="nav-link waves-effect" href="{% url 'add_count' %}"><b>Add Counter Value</b></a>
+                  </li>
+                  <li class="nav-item mx-1">
+                     <a class="nav-link waves-effect" href="{% url 'add_social_media' %}"><b>Add Social Media Link</b></a>
+                  </li>
+                  <li class="nav-item mx-1">
+                     <a class="nav-link waves-effect" href="{% url 'add_account' %}"><b>Income & Expanse</b></a>
+                  </li>
+                  <li class="nav-item mx-1">
+                     <a class="nav-link waves-effect" href="{% url 'add_google_meet' %}"><b>Add Google Meet Link</b></a>
+                  </li>
+                  <li class="nav-item mx-1">
+                     <a class="nav-link waves-effect" href="{% url 'add_notes' %}" target="_blank"><b>Add Notes / Reference</b></a>
+                  </li>
+               </ul>
+            </li>
+            {% endif %}
+            {% if today_date %}
+               <li class="nav-item mr-2"> 
+                  <a class="nav-link waves-effect" style="color: #1e80b0;font-family: 'Play', sans-serif;;font-size: 19px;line-height: 22px;letter-spacing: 0.07em;font-weight: 600;padding-left: 63px;"> 
+                     {{ today_date|date:"d/m/Y" }} -
+                     <span class="text-danger">{{current_time}}</span>
+                  </a>
+               </li>
+            {% endif %}
+          
+         </ul>
+         <!-- Right -->
+         <ul class="navbar-nav nav-flex-icons">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+               <a href="{% url 'logout' %}" class="nav-link btn btn-sm btn-white text-dark rounded waves-effect">
+               <i class="fas fa-sign-out-alt mr-1"></i>Logout
+               </a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+               <a href="{% url 'administration_login' %}" class="nav-link btn btn-sm btn-white text-dark rounded waves-effect mr-2">
+               <i class="fas fa-sign-in-alt mr-1"></i>Login
+               </a>
+            </li>
+            {% endif %}
+         </ul>
+      </div>
+   </div>
+</nav>
+

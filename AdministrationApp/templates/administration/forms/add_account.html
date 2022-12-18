@@ -1,0 +1,243 @@
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+
+{% block content %}
+
+
+<main class="pt-5 mx-lg-3">
+  <div class="container-fluid mt-5">
+   {% if user.is_staff %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>Income & Expense </span>
+            </h4>
+            <a class="btn btn-sm btn-secondary" href="{% url 'export_data' %}">Export to CSV</a>
+         </div>
+      </div>
+
+      <form action="" method="POST">
+         {% csrf_token %}
+      <div class="row wow fadeIn">
+   
+         
+            <div class="col-md-6 mx-auto">
+               <div class="card mb-4 ">
+                  <div class="card-header text-white bg-success"><b>Income Form</b></div>
+                  <div class="card-body">
+                     <div class="list-group list-group-flush">
+                        <div class="form-outline">
+                           <label class="form-label" for="typeText1">Income Rs. <span style="color: red;">*</span></label>
+                           <input name="income" type="text" id="typeText1" class="form-control" />
+                        </div>
+                        <div class="form-outline mt-2">
+                           <label class="form-label" for="typeText2">Description <span style="color: red;">*</span></label>
+                           <input name="description_income"  type="text" id="typeText2" class="form-control" />
+                        </div>
+                        <div class="form-outline mt-2 d-flex justify-content-center">
+                           <button name="IncomeForm" type="submit" class="btn btn-sm text-white btn-success"><b>Submit</b> </button>
+                           <a href="{% url 'administration_home' %}" type="button" class="btn text-white btn-sm btn-secondary"><b>Cancel</b></a>
+                        </div>               
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-md-6 mx-auto">
+               <div class="card mb-4 ">
+                  <div class="card-header text-white bg-danger"><b>Expense Form</b></div>
+                  <div class="card-body">
+                     <div class="list-group list-group-flush">
+                        <div class="form-outline">
+                           <label class="form-label" for="typeText1">Expense Rs. <span style="color: red;">*</span></label>
+                           <input name="expense" type="text" id="typeText1" class="form-control" />
+                        </div>
+                        <div class="form-outline mt-2">
+                           <label class="form-label" for="typeText2">Description <span style="color: red;">*</span></label>
+                           <input name="description_expense"  type="text" id="typeText2" class="form-control" />
+                        </div>
+                        <div class="form-outline mt-2 d-flex justify-content-center">
+                           <button name="ExpenseForm" type="submit" class="btn btn-sm text-white btn-danger"><b>Submit</b> </button>
+                           <a href="{% url 'administration_home' %}" type="button" class="btn text-white btn-sm btn-secondary"><b>Cancel</b></a>
+                        </div>               
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+      </div>
+      </form>
+
+      <div class="row wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+         {% if data %}
+         <div class="col-md-12 mb-4">
+            <div class="card">
+               <div class="card-header bg-primary text-white d-flex justify-content-between">
+                  <span>Account Details</span> 
+                  <span>
+                     
+                  </span>
+               </div>
+               <div class="card-body">
+                  <table class="table table-hover">
+                     <thead class="blue lighten-4 text-center">
+                        <tr>
+                           <th>Roll</th>
+                           <th>Date</th>
+                           <th>Income</th>
+                           <th>Expense</th>
+                           <th>Details</th>
+                           <th></th>
+
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {% for item1 in data %}
+                        <tr>
+                           <th class="text-center">
+                              {% if not item1.income_flag %}
+                              <span class="badge badge-danger badge-pill pull-right">{{ forloop.revcounter }}</span>
+                              {% else %}
+                              <span class="badge badge-success badge-pill pull-right">{{ forloop.revcounter }}</span>
+                              {% endif %}
+                           </th>
+                           <td class="text-center"><strong>{{ item1.start_Date | date:"d/m/Y" }}</strong></td>
+                           {% if item1.income_flag %}
+                              <td class="text-center"><strong>{{ item1.income }}</strong></td>
+                           {% else %}
+                              <td></td>
+                           {% endif %}
+                           {% if item1.expense_flag %}
+                              <td class="text-center"><strong>{{ item1.expense }}</strong></td>
+                           {% else %}
+                              <td></td>
+                           {% endif %}
+                           <td class="text-justify"><strong> - {{ item1.description }}</strong></td>
+                           <td>
+                              {% if user.is_superuser %}
+                              <a class="red-text text-center" href="{% url 'delete_account' item1.id %}"><strong><i class="fas fa-trash-alt"></i></strong></a>
+                              {% endif %}
+                           </td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                           <th></th>
+                           <th style="font-size: larger;text-align: right;padding-right: 30px;padding-left: 0;"><b>Total =</b></th>
+                           <th style="font-size: larger;" class=" text-center text-dark"><strong> {{total_income}}</strong></th>
+                           <th style="font-size: larger;" class=" text-center text-dark"><strong> {{total_expense}}</strong></th>
+                           <th style="font-size: larger;" class=" text-center text-dark"><a class="btn btn-sm btn-secondary" href="{% url 'export_data' %}"><b>Export to CSV</b></a></th>
+                        </tr>
+                       
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-12 mb-4">
+            <div class="card">
+               <div class=" d-flex card-body justify-content-between mx-auto">
+                  <h6 class="mr-5"><span class="badge badge-success badge-pill pull-right">{{0}}</span> Income</h6>
+                  <h6 class="mr-5"><span class="badge badge-danger badge-pill pull-right">{{0}}</span> Expense </h6>
+                  <h6><span class="badge badge-secondary badge-pill pull-right">{{0}}</span> <strong>Profit = {{ profit }}</strong> </h6>
+               </div>
+            </div>
+            <div class="card mt-2">
+               <div class=" d-flex card-body justify-content-between mx-lg-5">
+                  <a target="_blank" class="btn btn-sm text-dark btn-warning" href="https://limonte.github.io/csv-viewer-online/"><b>CSV Viewer</b></a>
+                  {% if user.is_superuser %}
+                  <a class="btn btn-sm btn-danger" href="{% url 'delete_all_account_warnning' %}"><b>Delete All</b> &nbsp;&nbsp;<strong><i class="fas fa-trash-alt"></i></strong></a>
+                  {% endif %}
+               </div>
+            </div>
+         </div>
+         {% else %}
+         <div class="col-md-12 mb-4">
+            <div class="card">
+               <div class="card-body text-center">
+                  <h4> No Details Found..</h4>
+                  <p></p>
+               </div>
+            </div>
+         </div>
+         {% endif %}
+      </div>
+
+
+   
+      <!-- <div class="row wow fadeIn">
+         
+         <div class="col-md-6 ">
+            <div class="card mb-4">
+               <div class="card-header text-white bg-secondary"><b>All Income</b></div>
+               <div class="card-body">
+                  <div class="list-group list-group-flush">
+                     {% for i in income_data %}
+                     <span class="d-flex justify-content-between list-group-item list-group-item-action waves-effect">
+                        <span>{{i.description}}</span>  
+                        <span>{{i.income}}</span>  
+                        <a href="#"><span class="badge badge-danger badge-pill pull-right">Delete</span></a>              
+                     </span>
+                     {% endfor %} 
+                     <span class="d-flex justify-content-between list-group-item list-group-item-action waves-effect">
+                        <span></span>   
+                        <span><b>Total Income: </b></span>  
+                        <span><b>{{ total_income }}</b></span>  
+                        <span></span>  
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col-md-6 ">
+            <div class="card mb-4">
+               <div class="card-header text-white bg-primary d-flex justify-content-between">
+                  <b>All Expense</b>
+                  <span style="padding-right: 10px;">= {{ total_expense }}</span></div>
+               <div class="card-body">
+                  <div class="list-group list-group-flush">
+                     {% for i in expense_data %}
+                     <span class="d-flex justify-content-between list-group-item list-group-item-action waves-effect">
+                        <span>{{i.expense}}</span>  
+                        <span>{{i.start_Date}}</span>  
+                        <span>{{i.description}}</span>  
+                        <a href="#"><span class="badge badge-danger badge-pill pull-right">Delete</span></a>              
+                     </span>
+                     {% endfor %} 
+                     <span class="d-flex justify-content-between list-group-item list-group-item-action waves-effect">
+                        <span></span>   
+                        <span><b>Total Expense = </b></span>  
+                        <span><b>{{ total_expense }} /-</b></span>  
+                        <span></span>  
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+      </div> -->
+
+   {% else %}
+
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body text-center">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>You are not allowed here !!</span>
+            </h4>
+            <h5 class="my-2 mb-sm-0 pt-1 text-danger">
+               <br>
+               <span>Admin Only</span><br><br>
+               <p>- Please Contact Admin -</p>
+            </h5>
+         </div>
+      </div>
+
+   {% endif %}
+  </div>
+</main>
+
+{% endblock %}
+      

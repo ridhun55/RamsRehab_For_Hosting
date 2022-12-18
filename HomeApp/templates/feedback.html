@@ -1,0 +1,39 @@
+{% load static %}
+<style>
+   .testimonials_bg{
+   background: url("{% static 'assets/img/hero-bg1.jpg' %}");
+   background-repeat: no-repeat;
+   background-size: cover;
+   }
+</style>
+
+
+  <section id="testimonials" class="testimonials testimonials_bg">
+   <div class="container">
+      <div class="section-title">
+         <h2>Our Feedback</h2>
+         <p style="font-weight: 600;"></p>
+       </div>
+
+     <div class="owl-carousel testimonials-carousel">
+
+      {% for item in feedback_data %}
+       <div class="testimonial-wrap">
+         <div class="testimonial-item">
+           <img src="{{ item.profile_photo.url }}" class="testimonial-img" alt="{{ item.name | capfirst }}">
+           <h3>{{ item.name | capfirst }}</h3>
+           <h4>{{ item.Role | capfirst }}</h4>
+           <p>
+             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              {{ item.snippets | slice:":200" }}
+             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+           </p>
+         </div>
+       </div>
+       {% endfor %}
+
+     </div>
+
+   </div>
+ </section>
+ 

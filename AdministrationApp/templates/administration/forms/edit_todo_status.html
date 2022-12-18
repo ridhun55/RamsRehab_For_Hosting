@@ -1,0 +1,86 @@
+
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+{% block content %}
+<main class="pt-5 mx-lg-5">
+   <div class="container-fluid mt-5">
+   {% if user.is_staff %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>Update Status</span>
+            </h4>
+         </div>
+      </div>
+      
+      <div class="row wow fadeIn" >
+         <div class="col-md-12 ">
+            <div class="card mb-4 ">
+               <div class="card-header text-white bg-primary">Change Todo Status </div>
+               <div class="card-body">
+               <form method="POST">{% csrf_token %}
+                  <div class="list-group list-group-flush">
+                     <div class="form-outline">
+                        <label class="form-label" for="typeText1">Assign To <span style="color: red;">*</span></label>
+                        <input name="todo_name" disabled  value="{% if data.todo_name %}{{ data.todo_name }}{% endif %}"  type="text" id="typeText1" class="form-control" />
+                     </div>
+                     <div class="form-outline mt-2">
+                        <label class="form-label" for="typeText2">Dead Time</label>
+                        <input name="todo_dead_time" disabled value="{% if data.todo_dead_time %}{{ data.todo_dead_time }}{% endif %}"  type="text" id="typeText2" class="form-control" />
+                     </div>
+                     <div class="form-outline mt-2">
+                        <label class="form-label" for="typeText2">Todo Subject <span style="color: red;">*</span></label>
+                        <input name="todo_subject" disabled value="{% if data.todo_subject %}{{ data.todo_subject }}{% endif %}" type="text" id="typeText2" class="form-control" />
+                     </div>
+
+                     <div class="form-outline mt-2">
+                        <label class="form-label" for="typeText2">Change Status </label>
+                        <select style="color: red;" name="todo_status"  class="browser-default custom-select">
+                           {% if data.todo_status == "start" %}
+                              <option  selected value="start"> &nbsp;&nbsp; Started</option>
+                           {% else %}
+                              <option  value="start"> &nbsp;&nbsp; Started</option>
+                           {% endif %}
+                           {% if data.todo_status == "finished" %}
+                              <option  selected value="finished"> &nbsp;&nbsp; Finished</option>
+                           {% else %}
+                              <option  value="finished"> &nbsp;&nbsp; Finished</option>
+                           {% endif %}
+                           {% if data.todo_status == "pending" %}
+                              <option  selected value="pending"> &nbsp;&nbsp; Pending</option>
+                           {% else %}
+                              <option  value="pending"> &nbsp;&nbsp; Pending</option>
+                           {% endif %}
+                         </select>
+                     </div>
+                     <div class="form-outline d-flex justify-content-center mt-2">
+                        <button type="submit" class="btn btn-sm btn-primary waves-effect waves-light">Update Status </button>
+                     </div>
+                     
+                  </div>
+               </form>
+               </div>
+            </div>
+            </div>
+
+      </div>
+      
+   {% else %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body text-center">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>You are not allowed here !!</span>
+            </h4>
+            <h5 class="my-2 mb-sm-0 pt-1">
+               <span>Please Login</span>
+            </h5>
+         </div>
+      </div>
+   {% endif %}
+   </div>
+   <!-- Details Section -->
+</main>
+{% endblock %}
+

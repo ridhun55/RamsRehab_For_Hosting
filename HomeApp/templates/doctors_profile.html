@@ -1,0 +1,45 @@
+
+{% load static %}
+
+
+    <section class="doctors">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Docters Profile</h2>
+          <p></p>
+          {% if not data %}
+          <p class="text-danger pt-5">* Add Docters Profile from Administration Section</p>
+          {% endif %}
+        </div>
+
+        <div class="row">
+
+          {% for item in data %}
+          <div class="col-lg-6">
+            <div class="member d-flex align-items-start">
+              <div class="pic">
+                <img src="{{ item.profile_photo.url }}" class="img-fluid" alt="{{ item.name }}">
+              </div>
+              <div class="member-info">
+                <h4>{{ item.name }}</h4>
+                <span>{{ item.designation }}</span>
+                <p>{{ item.snippets }}</p>
+                <div class="social">
+                  <a href="{{ item.twitter_url }}" target="_blank"><i class="ri-twitter-fill"></i></a>
+                  <a href="{{ item.facebook_url }}" target="_blank"><i class="ri-facebook-fill"></i></a>
+                  <a href="{{ item.instagram_url }}" target="_blank"><i class="ri-instagram-fill"></i></a>
+                  <a href="{{ item.linkedin_url }}" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          
+
+        </div>
+        
+
+      </div>
+    </section><!-- End Doctors Section -->

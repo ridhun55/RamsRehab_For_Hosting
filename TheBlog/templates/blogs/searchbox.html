@@ -1,0 +1,11 @@
+<nav class="navbar navbar-light justify-content-center">
+   <form action="{% url 'search_page' %}" method="POST" class="form-inline">
+      {% csrf_token %}
+      <div class="input-group mb-3" >
+         <input type="search" name="searched"  class="form-control outline-info" placeholder="Search blogs" aria-describedby="basic-addon1">
+         <div class="input-group-prepend" >
+            <button  type="submit" class="btn btn-outline-info" id="basic-addon1"><i class="icofont-search"></i></button>
+         </div>
+      </div>
+   </form>
+ </nav>

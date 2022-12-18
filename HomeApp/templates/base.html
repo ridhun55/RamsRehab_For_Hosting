@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  {% load static %}
+  {% block title %} {{ post.title_tag }} {% endblock %}
+
+  <meta charset="utf-8">
+  <meta name="title" content="Ramsrehab - A Physiotherapy Center">
+  <meta name="description" content="Ram's Rehab is a Physiotherapy and Dry needling clinic established in 2020. More than a traditional way of treatment, we are focusing on the cause of your pain and disability. Without medicine we are treating a permanent cure for your pain. 
+  RAM’S Rehab is the first Physical therapy center in India which focusing on the root cause of your migraine and eradicating migraine from your day today life  through proper diet plan, Manual therapy and Therapeutic exercises.">
+  <meta content="Ram's Rehab,Rams Rehab, Ramsrehab, Physiotherapy, Physiotherapy clinic, Physiotherapy center, hospital, Medical, No medicine, EMS, Electrical Muscle Stimulation, IFT, Interferential therapy, TENS, Ultrasound, KT Taping, Cupping Therapy, Traction Treatment, Dry needing, Myofascial Release, Therapeutic Exercise" name="keywords">
+  
+  <meta property="og:url" content="https://www.ramsrehab.com">
+  <meta property="og:title" content="Ramsrehab - A Physiotherapy Center">
+  <meta property="og:description" content="Ram's Rehab is a Physiotherapy and Dry needling clinic. Without medicine we are treating a permanent cure for your pain. first Physical therapy center in India which focusing on the root cause of your migraine and eradicating migraine from your day today life">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, allow, follow">
+  <meta name="contributor" content="Ramsrehab">
+  <meta name="copyright" content="© 2021 Ramsrehab">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/logo/fav.png' %}" rel="icon">
+  <link href="{% static 'assets/img/logo/fav.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'style.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+ <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+</head>
+
+<body>
+
+
+
+  {% include "header.html" %}
+
+  {% block content %}
+
+
+
+
+
+  {% endblock content %}
+
+  {% include "footer.html" %}
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+   </body>
+</html>
+

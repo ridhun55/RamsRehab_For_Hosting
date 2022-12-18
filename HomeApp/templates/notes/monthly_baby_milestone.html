@@ -1,0 +1,213 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+      text-decoration: none;
+      color: white;
+      }
+      .jumbotron .lead a:hover{
+      color:#007bff;
+      text-decoration-line: underline;
+      }
+      html{
+         scroll-behavior: smooth;
+      }
+      .jumbotron a{
+         text-decoration:none;
+      }
+   </style>
+    <style>
+      @media (max-width: 992px) {
+          .jumbotron h1 {
+              font-size: 28px;
+          }
+          .jumbotron p{
+              font-size: 15px;
+          }
+          .jumbotron a{
+              font-size: 15px;
+          }
+          .jumbotron h4{
+              font-size: 18px;
+          }
+      }
+       </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Mom and Child</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'pediatrics' %}">Mom and Child</a></li>
+               <li>Monthly Baby Milestone</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section class="faq about_bg">
+      <div class="container">
+         <div class="section-title">
+            <h2>Monthly Baby Milestone</h2>
+         </div>
+
+         <div class="container">
+            <div class="jumbotron text-dark bg-white">
+               <div style="text-decoration: none;" class="d-flex justify-content-around flex-wrap text-bold text-center">
+                  <a class="border-bottom p-3" href="#a">1 - 4 Month </a>
+                  <a class="border-bottom p-3" href="#b">5 - 8 Month </a>
+                  <a class="border-bottom p-3" href="#c">9 - 12 Month </a>
+               </div>
+            </div>
+         </div>
+
+         <div class="row d-flex justify-content-center mx-auto">
+
+            <div id="a" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info"></span>
+                  <h1 class="display-6">1 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -  Recognize faces<br/>
+                     -  Moves head side to side<br/>
+                     -  Brings hand within range of eyes and mouth
+                  </p>
+                  
+                  <br/>
+                  <h1 class="display-6">2 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Smile<br/>
+                     -	Follow things with eyes<br/>
+                     -	Self sucking hands<br/>
+                     -	Hold head up when lying on tummy<br/>
+                     -	Arm & leg movement                  
+                  </p>
+
+                  <br/>
+                  <h1 class="display-6">3 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Different types of cries for different things eg:hunger, pain, diaper change<br/>
+                     -  Turns head in the direction of sound<br/>
+                     -  Enjoy playing with people                 
+                  </p>
+
+                  <br/>
+                  <h1 class="display-6">4 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Copies facial expressions<br/>
+                     -	Reaches for the toys with hand<br/>
+                     -  Prone on elbow                
+                  </p>
+                  
+               </div>
+            </div>
+            
+            <div id="b" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info"></span>
+                  <h1 class="display-6">5 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -  Rolling<br/>
+                     -	Loves to look himself in the mirror<br/>
+                     -  Explore toys with mouth
+                  </p>
+                  
+                  <br/>
+                  <h1 class="display-6">6 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Creeping on floor<br/>
+                     -	Sitting unsupported<br/>
+                     -	Passes things to one hand to other<br/>
+                     -	Understand simple words and respond according to it
+                                  
+                  </p>
+
+                  <br/>
+                  <h1 class="display-6">7 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Enjoy dropping things on floor<br/>
+                     -	Play simple games<br/>
+                     -	Responds to'NO'
+                                  
+                  </p>
+
+                  <br/>
+                  <h1 class="display-6">8 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Begins to crawling<br/>
+                     -	Hand on holding something<br/>
+                     -	Pincer gripping
+                                 
+                  </p>
+                  
+               </div>
+            </div>
+            
+            <div id="c" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info"></span>
+                  <h1 class="display-6">9 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Make favorite toys<br/>
+                     -	Lot of different sounds eg: mama, bababa<br/>
+                     -  Use fingers to point at things
+                  </p>
+                  
+                  <br/>
+                  <h1 class="display-6">10 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Explore things by banging, shaking, throwing<br/>
+                     -	Pull to stand in supported<br/>
+                     -	Stand to sitting without help<br/>
+                     -	Start to feeding himself
+                          
+                  </p>
+
+                  <br/>
+                  <h1 class="display-6">11 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Crawls upstairs
+               <br/> -	Develop separation anxiety
+               <br/> -  Start to make a speech with different sound tone
+                  </p>
+
+                  <br/>
+                  <h1 class="display-6">12 Month</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -  Make a statement eeg'No’with head movement, bye bye with hands
+                        Mama, daddy
+               <br/> -  Use things correctly
+               <br/> -  Eg:drink from cup, Brushes hair
+               <br/> -  Standing unsupported
+               <br/> -  May take a few steps supported  
+                  </p>
+                  
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock content %}
+

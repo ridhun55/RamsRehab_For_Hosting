@@ -1,0 +1,195 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+      text-decoration: none;
+      color: white;
+      }
+      .jumbotron .lead a:hover{
+      color:#007bff;
+      text-decoration-line: underline;
+      }
+      html{
+      scroll-behavior: smooth;
+      }
+      .jumbotron a{
+      text-decoration:none;
+      }
+   </style>
+ 
+ <style>
+   @media (max-width: 992px) {
+       .jumbotron h1 {
+           font-size: 28px;
+       }
+       .jumbotron p{
+           font-size: 15px;
+       }
+       .jumbotron a{
+           font-size: 15px;
+       }
+       .jumbotron h4{
+           font-size: 18px;
+       }
+   }
+    </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Musculoskeletal</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'musculoskeletal' %}">Musculoskeletal</a></li>
+               <li>Ankle</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section class="faq about_bg">
+      <div class="container">
+         <div class="section-title">
+            <h2>Ankle</h2>
+         </div>
+
+         <div class="container">
+            <div class="jumbotron text-white bg-white">
+               <div style="text-decoration: none;" class="d-flex justify-content-around flex-wrap text-bold text-center">
+                  <a class="border-bottom p-3" href="#a"> Plantar Fascitis</a><br/>
+                  <a class="border-bottom p-3" href="#b"> Achilles Tendinitis</a><br/>
+                  <a class="border-bottom p-3" href="#c"> Ankle Sprain</a><br/>
+              </div>
+            </div>
+         </div>
+
+         <div class="row mx-auto justify-content-center">
+            <div id="a" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  1</span>
+                  <h1 class="display-6">Plantar Fascitis</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Inflammation of the plantar fascia<br/>
+                     - Burning pain<br/>
+                     - Pain with weight bearing or standing<br/>
+                     - Morning pain and stiffness’<br/>
+                     - Pain after long period of rest <br/>
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Windlass test<br/>
+                     - Medial calcaneal palpation 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Footwear modifications Electro therapy<br/>
+                     - Ultra sound<br/>
+                     - Dry needling 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Calf stretch<br/>
+                     - Plantar fascia stretch<br/>
+                     - Frozen water bottle rolling<br/>
+                     - Lumbrical strengthening<br/>
+                     - KT taping
+
+                  </p>
+               </div>
+            </div>
+            <div id="b" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  2</span>
+                  <h1 class="display-6">Achilles Tendinitis</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Pain with exercise and activity<br/>
+                     - Stiffness after sitting or sleeping<br/>
+                     - Decreased ROM<br/>
+                     - Decreased calf muscle strength 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Royal tendon test<br/>
+                     - Arc pain
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Cryo therapy Electro therapy<br/>
+                     - Ultra sound 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Calf stretch<br/>
+                     - Soleus stretch<br/>
+                     - Eccentric heel raise on a wood board
+                  </p>
+               </div>
+            </div>
+            <div id="c" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  3</span>
+                  <h1 class="display-6">Ankle Sprain</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                    - Ankle rolled inward during landing<br/>
+                    - Common sports injury and injury in daily life  
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                    - Anterior drawers test<br/>
+                    - Talus lateral hit 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131)">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - PRICE protocol<br/>
+                     - P-Protection <br/>
+                     - R-Rest<br/>
+                     - I-Ice<br/>
+                     - C-Compression <br/>
+                     - E-Elevation<br/>
+                     - Electrotherapy<br/>
+                     - Ultrasound<br/>
+                     - TENS
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Calf stretch<br/>
+                     - Heel raise<br/>
+                     - Single leg stands<br/>
+                     - Kinesio taping
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock content %}
+

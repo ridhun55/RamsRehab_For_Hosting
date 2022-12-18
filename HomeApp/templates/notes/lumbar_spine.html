@@ -1,0 +1,221 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+      text-decoration: none;
+      color: white;
+      }
+      .jumbotron .lead a:hover{
+      color:#007bff;
+      text-decoration-line: underline;
+      }
+      html{
+      scroll-behavior: smooth;
+      }
+      .jumbotron a{
+      text-decoration:none;
+      }
+   </style>
+ 
+ <style>
+   @media (max-width: 992px) {
+       .jumbotron h1 {
+           font-size: 28px;
+       }
+       .jumbotron p{
+           font-size: 15px;
+       }
+       .jumbotron a{
+           font-size: 15px;
+       }
+       .jumbotron h4{
+           font-size: 18px;
+       }
+   }
+    </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Musculoskeletal</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'musculoskeletal' %}">Musculoskeletal</a></li>
+               <li>Lumbar Spine</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section class="faq about_bg">
+      <div class="container">
+         <div class="section-title">
+            <h2>Lumbar Spine</h2>
+         </div>
+         <div class="container">
+
+            <div class="jumbotron text-white bg-white">
+               <div style="text-decoration: none;" class="d-flex justify-content-around flex-wrap text-bold text-center">
+                  <a class="border-bottom p-3" href="#a"> Lumbar spinal stenosis</a><br/>
+                  <a class="border-bottom p-3" href="#b"> Lumbar disc prolapse </a><br/>
+                  <a class="border-bottom p-3" href="#c"> Lower cross syndrome </a>
+               </div>
+            </div>
+         </div>
+         <div class="row mx-auto justify-content-center">
+            
+            <div id="a" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  1</span>
+                  <h1 class="display-6">Lumbar spinal stenosis</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - 	Narrowing of spinal canal<br/>
+                     -  Pain during standing and walking<br/>
+                     -  Relived during sitting  
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -  Electrotherapy
+               <br/> -  IFT
+               <br/> -  Dry needling
+               <br/> -  Mechanical traction
+                  
+                  </p>
+
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -  Aerobic excersise
+               <br/> -  Lumbar rotation stretch
+               <br/> -  Double knee to chest 
+               <br/> -  Quadripod thoracic extension on elbow
+               <br/> -  Hip flexor stretch
+               <br/> -  Bridges  
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Manual Therapy
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -  Sacro- iliac joint mobilization
+               <br/> -  Spinal joint mobilization
+               <br/> -  Manual traction
+                  </p>
+               </div>
+            </div>
+            
+            <div id="b" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  2</span>
+                  <h1 class="display-6">Lumbar disc prolapse </h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Typically presents on low back 
+               <br/> -	Refers to buttocks, thighs, leg, 
+               <br/> -	Worsens with flexion activities like sitting and bending                   
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test 
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -  Quadrant test
+               <br/> -  Straight leg raise                 
+                  </p>
+
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment 
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -  Electrotherapy
+               <br/> -  IFT 
+               <br/> -  Dry needling 
+               <br/> -  Myofacial release
+               <br/> -  Mechanical traction
+
+                  </p>
+
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -	Mckenzie therapy -directional preference exercises
+               <br/> -	Mini squat
+               <br/> -	Static bicycle                  
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Manual Therapy
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -	Spinal joint mobilization<br/>
+                     -	Sacro-iliac joint mobilization<br/>
+                     -   Manual traction
+                  </p>
+               </div>
+            </div>
+            
+            <div id="c" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  3</span>
+                  <h1 class="display-6">Lower cross syndrome </h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     -	Result of muscle strength imbalance
+               <br/> -	Tightness or over activity of hip flexors and lumbar extensors
+               <br/> -	Weakness of abdominal muscles and gluteus muscles
+               <br/> -	Presents as joint pain
+               <br/> -	Breathing problems                                    
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test 
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -	Thomas test
+               <br/> -	Straight leg raise
+               <br/> -  Piriformis test               
+                  </p>
+
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment 
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                  -  Electrotherapy
+            <br/> -	IFT
+            <br/> -	Ultrasound
+            <br/> -	Dry needling
+                  </p>
+
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -	Iliopsoas stretch
+               <br/> -	Erector spinae stretch
+               <br/> -	Core stabilization exercise
+               <br/> -	Postural re education                                   
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Manual Therapy
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     -	S-I joint mobilization<br/>
+                     -	Spinal joint mobilization
+                  </p>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock content %}
+

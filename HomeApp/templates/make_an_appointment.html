@@ -1,0 +1,83 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+
+   <style>
+      .appointment-bg{
+         background: url("{% static 'assets/img/logo/logo_light.png' %}");
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+   </style>
+
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Appointment</h2>
+            <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Appointment</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+
+   <section id="Appointment" class="contact ">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Make an Appointment</h2>
+        <p>please submit your details for booking. Our team will inform you soon</p>
+      </div>
+    </div>
+
+
+    <div class="container ">
+      <div class="row mt-3">
+
+        <div class="col-lg-8 mx-auto mt-5 mt-lg-0">
+
+          <form method="post" class="php-email-form">
+              {% csrf_token %}
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                <div class="validate"></div>
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="text" class="form-control" name="age" id="age" placeholder="Age">
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile Number" data-rule="minlen:10" data-msg="Please enter valid mobile number">
+                <div class="validate"></div>
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="text" class="form-control" name="place" id="place" placeholder="Place">
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="Any Message..."></textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="mb-3">
+              <div class="loading">Loading</div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Make an Appointment</button></div>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+ </main>
+{% endblock content %}

@@ -1,0 +1,104 @@
+
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+{% block content %}
+<main class="pt-5 mx-lg-5">
+   <div class="container-fluid mt-5">
+      {% if user.is_superuser %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>Add Physio Profile</span>
+            </h4>
+         </div>
+      </div>
+      <style>
+         #regform.helptext{
+         display:none;
+         }
+         #regform ul li{
+         font-size:10px;
+         }
+      </style>
+      <form action="" method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+         <div class="row wow fadeIn">
+            <div class="col-md-9 mx-auto">
+               <div class="card mb-4">
+                  <div class="card-header text-white bg-primary">Add Physio Profile</div>
+                  <div class="card-body">
+                     <p class="text-danger text-center"> * image size : 600 x 600 pixals</p>
+                     <div class="list-group list-group-flush">
+                        <div id="regform" class="form-outline">
+                           {{ form.media }}
+                           {{ form.as_p }}
+                        </div>
+                     </div>
+                     <div class="col-md-10 d-flex  justify-content-center mx-auto" >
+                        <div class=" mb-2">
+                           <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+   </div>
+   {% else %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body text-center">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>You are not allowed here !!</span>
+            </h4>
+            <h5 class="my-2 mb-sm-0 pt-1 text-danger">
+               <br>
+               <span>Only admin can Add Physio Profile Details</span><br><br>
+               <p>- Please Contact Admin -</p>
+            </h5>
+         </div>
+      </div>
+   {% endif %}
+
+   {% if user.is_superuser %}
+   <div class="col-md-12 mb-4 mt-4">
+      <div class="card">
+         <div class="card-header bg-primary text-white d-flex justify-content-between">
+            <span>Physio Profile Details</span> <span>   </span>
+         </div>
+         <div class="card-body">
+            <table class="table table-hover" >
+               <thead class="blue lighten-4 text-center">
+                  <tr>
+                     <th>Roll</th>
+                     <th>Name</th>
+                     <th>Designation</th>
+                     <th>Mobile</th>
+                     <th>Email</th>
+                     <th>Delete</th>
+                  </tr>
+               </thead>
+               <tbody class="text-center" >
+                  {% for item in data %}
+                  <tr>
+                     <th>{{ forloop.revcounter }}</th>
+                     <th >{{ item.name |capfirst }}</th>
+                     <th >{{ item.designation |capfirst }}</th>
+                     <th >{{ item.mobile }}</th>
+                     <th >{{ item.email }}</th>
+                     <td>
+                        <a class="red-text" href="{% url 'delete_doctors_profile' item.id %}"><strong><i class="fas fa-trash-alt"></i></strong></a>
+                     </td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+   {% endif %}
+</main>
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% load static %}
+<style>
+   .bg_quick_booking{
+   background: url("{% static 'assets/img/top-view-stethoscope.jpg' %}");
+   background-repeat: no-repeat;
+   background-size: cover;
+   }
+   .bg_quick_booking input[type="text"]{
+      background: #fff;
+      padding: 6px 10px;
+      position: relative;
+      border-radius: 50px;
+      text-align: left;
+      border: 1px solid #bfdcf7;
+   }
+</style>
+
+<section id="appointment" class="appointment bg_quick_booking">
+   <div class="container">
+      <div class="section-title">
+         <h2>Quick Appointment</h2>
+         <p style="font-weight: 600;">Make an Appointment by simply send your mobile number.Our Team will contact you soon</p>
+      </div>
+      <form method="post" role="form" class="php-email-form">
+         {% csrf_token %}
+      <div class="row justify-content-center">
+         <div class="col-md-4 ">
+            <input type="text" name="mobile" class="text-center form-control" placeholder="Your Mobile Number" >
+         </div>
+      </div>
+      <div class="mt-4 text-center">
+         <button type="submit">Make an Appointment</button>
+      </div>
+      </form>
+   </div>
+</section>

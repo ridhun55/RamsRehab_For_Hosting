@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>
+         {% block title %} 
+         
+         {% endblock title %}
+      </title>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+      <link href="{% static 'administration/css/bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'administration/css/mdb.min.css' %}" rel="stylesheet">
+      <link href="{% static 'administration/css/style.min.css' %}" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet"> 
+   </head>
+   <body class="grey lighten-2">
+      <header>
+         {% include 'administration/top_nav.html' %}
+         
+         {% include 'administration/side_nav.html' %}
+      </header>
+      
+      {% block content %}
+
+
+
+
+
+      {% endblock %}
+
+      <style>
+         .page-footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: transparent;
+         }
+      </style>
+      <footer class="page-footer sticky-bottom text-center font-small transparent-color-transparent darken-2 mt-4 wow fadeIn">
+
+         <div class="py-3">
+         </div>
+      </footer>
+
+      <script type="text/javascript" src="{% static 'administration/js/jquery-3.4.1.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'administration/js/popper.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'administration/js/bootstrap.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'administration/js/mdb.min.js' %}"></script>
+      <script type="text/javascript">
+         new WOW().init();
+      </script>
+   </body>
+</html>
+

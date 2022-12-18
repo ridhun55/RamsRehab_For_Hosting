@@ -1,0 +1,106 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{ post.title_tag }} {% endblock %}
+{% block content %}
+<main id="main">
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+   </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Blogs</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li>Blogs</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section class="inner-page about_bg">
+      <div class="container ">
+         
+         {% include 'blogs/searchbox.html' %}
+         
+         <div class="d-flex justify-content-between  mx-auto">
+            <div>
+               <p>Auther : {{ post.author.first_name }} {{ post.author.last_name }} </p>
+               <p>Date : {{ post.post_date | date:'d-m-Y' }}</p>
+            </div>
+            <div>
+               <p>Category : <a href="{% url 'category' post.category|slugify %}">{{ post.category | capfirst  }}</a></p>
+               {% if user.is_authenticated %}
+               {% if user.id == post.author.id %}
+               <a class="btn btn-sm btn-warning mx-1" href="{% url 'edit_post' post.pk %}">Edit Post</a></small>
+               <a class="btn btn-sm btn-danger mx-1" href="{% url 'delete_post' post.pk %}">Delete Post</a></small><br/>
+               {% endif %}
+               {% endif %}
+            </div>
+         </div>
+         <div class="section-title">
+            <h2>{{post.title}}</h2>
+            {% if post.header_image %}
+               <img style="display: block; margin-left: auto; margin-right: auto; max-width: 80%;" 
+               src="{{ post.header_image.url}}" alt="image of {{ post.title }}">
+            {% endif %}
+         </div>
+         <div class="container">
+            
+            <br/>
+            <br/>
+            <p class="text-justify">{{ post.body|safe }}</p>
+         </div>
+      </div>
+   </section>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2><b>Comments</b></h2>
+            <ol>
+               <li><a class="btn btn-info btn-sm" href="{% url 'add_comment' post.pk %}">Add Comments</a></li>
+            </ol>
+            <div>
+               {% if not post.comments.all %}
+                  <p>No Comments Yet</p> 
+               {% else %}
+                  <button type="button" class="btn btn-sm btn-success">
+                     <span class="badge badge-light">{{ post.comments.all.count }}</span> Comments
+                   </button>
+               {% endif %}
+            </div>
+
+         </div>
+         <div class="d-flex flex-column mr-auto align-items-center">
+            {% if post.comments.all %}
+               {% for comment in post.comments.all %}
+               <div class="col-md-8">
+                  <div class="card mb-3">
+                     <div class="card-header text-white bg-info py-1">
+                       {{ comment.name | capfirst }} 
+                     </div>
+                     <div class="card-body py-3">
+                       <blockquote class="mb-0">
+                         <p>{{ comment.body }}</p>
+                         <footer class="blockquote-footer">
+                            <cite title="Source Title d-flex">{{ comment.date_added | date:'d-m-Y  [ H:i A ]' }} </cite></footer>
+                       </blockquote>
+                     </div>
+                   </div>
+               </div>
+                  {% endfor %}
+               {% endif %}
+        
+                  
+         </div>
+      </div>
+   </section>
+
+</main>
+{% endblock content %}
+

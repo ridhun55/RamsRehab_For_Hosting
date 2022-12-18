@@ -1,0 +1,265 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+   <style>
+      .about_bg{
+      background: url("{% static 'home/img/bg/bg_1.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      .jumbotron .lead a{
+      text-decoration: none;
+      color: white;
+      }
+      .jumbotron .lead a:hover{
+      color:#007bff;
+      text-decoration-line: underline;
+      }
+      html{
+      scroll-behavior: smooth;
+      }
+      .jumbotron a{
+      text-decoration:none;
+      }
+   </style>
+ 
+ <style>
+   @media (max-width: 992px) {
+       .jumbotron h1 {
+           font-size: 28px;
+       }
+       .jumbotron p{
+           font-size: 15px;
+       }
+       .jumbotron a{
+           font-size: 15px;
+       }
+       .jumbotron h4{
+           font-size: 18px;
+       }
+   }
+    </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Musculoskeletal</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'musculoskeletal' %}">Musculoskeletal</a></li>
+               <li>Hip</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section class="faq about_bg">
+      <div class="container">
+         <div class="section-title">
+            <h2>Hip</h2>
+         </div>
+         <div class="container">
+            <div class="jumbotron text-white bg-white">
+               <div style="text-decoration: none;" class="d-flex justify-content-around flex-wrap text-bold text-center">
+                  <a class="border-bottom p-3" href="#a"> Hip Osteoarthritis</a><br/>
+                  <a class="border-bottom p-3" href="#b"> Hip Labral Tear  </a><br/>
+                  <a class="border-bottom p-3" href="#c"> Piriformis Syndrome </a><br/>
+                  <a class="border-bottom p-3" href="#d"> Groin Strain </a><br/>
+                  <a class="border-bottom p-3" href="#e"> Pelvic Girdle Pain </a>
+               </div>
+            </div>
+         </div>
+         <div class="row mx-auto justify-content-center">
+            <div id="a" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  1</span>
+                  <h1 class="display-6">Hip Osteoarthritis</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Common cause of hip pain over age of 50<br/>
+                     - Decreased movements of the joint specifically flexion and inward rotation<br/>
+                     - Backward tilting of the pelvis<br/>
+                     - Morning stiffness<br/>
+                     - Often seen in high BMI population 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - FADIS test<br/>
+                     - FABER test
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy <br/>
+                     - IFT<br/>
+                     - Dry needling 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Weight reduction<br/>
+                     - Manual Therapy<br/>
+                     - Quadripod Rock back<br/>
+                     - Single Knee to chest<br/>
+                     - Hamstring stretch<br/>
+                     - Standing hip adductor stretch<br/>
+                     - Hip flexor stretch<br/>
+                     - Joint mobilization<br/>
+                     - Manual traction   
+                  </p>
+               </div>
+            </div>
+            <div id="b" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  2</span>
+                  <h1 class="display-6">Hip Labral Tear</h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Pain in the front of the hip<br/>
+                     - Generalised joint pain<br/>
+                     - Popping, locking, snapping feeling from hip<br/>
+                     - Feeling of instability 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - CLICK test
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy <br/>
+                     - TENS<br/>
+                     - Dry needling 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Hip extension leaning over a table<br/>
+                     - Hip abduction strengthening
+                  </p>
+               </div>
+            </div>
+            <div id="c" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  3</span>
+                  <h1 class="display-6">Piriformis Syndrome </h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Irritated sciatic nerve caused by the compression or injury of piriformis muscle<br/>
+                     - Buttocks pain<br/>
+                     - Pain radiating to back of the thighs and lower leg<br/>
+                     - Pain increases with sitting  
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                  - FAIR test<br/>
+                  - Piriformis length test at 90°<br/>
+                  - Piriformis length test at 60°<br/>
+                  - Palpation of piriformis muscle
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131)">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Electrotherapy<br/>
+                     - Dry needling 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Piriformis stretch<br/>
+                     - Sciatic nerve mobilization<br/>
+                     - Gluteus muscle strengthening
+                  </p>
+               </div>
+            </div>
+            <div id="d" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  4</span>
+                  <h1 class="display-6">Groin Strain </h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Strain on the adductor muscle<br/>
+                     - Caused by excessive stretch during which the muscle is being contracted                      
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Special Test
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Palpation of adductor muscle<br/>
+                     - Manual muscle testing 
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Cryotherapy
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Hip ROM exercise<br/>
+                     - Adductor press<br/>
+                     - Progressive adductor strengthening<br/>
+                     - Strengthening using theraband<br/>
+                     - Dynamic stretching exercise<br/>
+                     - Butt kickers<br/>
+                     - Deep walking lunges<br/>
+                     - Lunge twist<br/>
+                     - High kicks   
+                  </p>
+               </div>
+            </div>
+            <div id="e" class="col-md-9">
+               <div class="jumbotron text-white bg-dark">
+                  <span class="text-small text-info">Therapy  5</span>
+                  <h1 class="display-6">Pelvic Girdle Pain  </h1>
+                  <hr class="my-3">
+                  <p class="lead pl-4">
+                     - Pain usually felt in same side of the joint, buttoks, back of the thigh or in groin<br/>
+                     - Association with increased BMI<br/>
+                     - Gluteal or pelvic floor muscle dysfunction<br/>
+                     - Joint hypermobility<br/>
+                     - Periods or amenhorria<br/>
+                     - Associated with pregnancy                       
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Treatment
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Pelvic floor muscle strengthening<br/>
+                     - Bent knee fall outs<br/>
+                     - Hip abductor and adductor muscle strengthening
+                     
+                  </p>
+                  <h4 style="border-bottom: 1px solid rgb(131, 131, 131);">
+                     Therapeutic Exercise
+                  </h4>
+                  <p class="lead pl-4 py-2">
+                     - Soft tissue massage<br/>
+                     - Isometrics to elbow extensors<br/>
+                     - Joint mobilization<br/>
+                     - Quadripod forward rocking<br/>
+                     - Prone lift off
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock content %}
+

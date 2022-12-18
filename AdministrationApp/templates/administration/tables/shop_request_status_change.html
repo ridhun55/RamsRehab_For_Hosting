@@ -1,0 +1,104 @@
+
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+{% block content %}
+<main class="pt-5 mx-lg-5">
+   <div class="container-fluid mt-5">
+   {% if user.is_staff %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>Update Shop Request Status</span>
+            </h4>
+         </div>
+      </div>
+      
+      <div class="row wow fadeIn" >
+         <div class="col-md-12 ">
+            <div class="card mb-4 ">
+               <div class="card-header text-white bg-primary">Change Shop Request Status </div>
+               <div class="card-body">
+               <form method="POST">{% csrf_token %}
+                  <div class="list-group list-group-flush">
+                     <div class="form-outline">
+                        <label class="form-label" for="typeText1">Product Id </label>
+                        <input name="todo_name" disabled  value="P{{ data.product_id }}"  type="text" id="typeText1" class="form-control" />
+                     </div>
+                     <div class="form-outline mt-2">
+                        <label class="form-label" for="typeText2">Price</label>
+                        <input name="price" disabled value="{{ data.price }}"  type="text" id="typeText2" class="form-control" />
+                     </div>
+                     {% if data.offer_price %}
+                     <div class="form-outline mt-2">
+                        <label class="form-label" for="typeText2">Offer Price </label>
+                        <input style="color: red;" name="offer_price" disabled value="{{ data.offer_price }}" type="text" id="typeText2" class="form-control" />
+                     </div>
+                     {% endif %}
+                     {% if data.name %}
+                     <div class="form-outline mt-2">
+                        <label class="form-label" for="typeText2">Name</label>
+                        <input name="price" disabled value="{{ data.name }}"  type="text" id="typeText2" class="form-control" />
+                     </div>
+                     {% endif %}
+                     <div class="form-outline mt-2">
+                        <label class="form-label" for="typeText2">Mobile No.</label>
+                        <input name="price" disabled value="{{ data.mobile }}"  type="text" id="typeText2" class="form-control" />
+                     </div>
+                     
+
+                     <div class="form-outline mt-2">
+                        <label class="form-label" for="typeText2">Shopping Status </label>
+                        <select style="color: rgba(255, 0, 0, 0.822);" name="shop_status"  class="browser-default custom-select">
+                           {% if data.shop_status == "Order Shipped" %}
+                              <option  selected value="Order Shipped"> &nbsp;&nbsp; Order Shipped</option>
+                           {% else %}
+                              <option  value="Order Shipped"> &nbsp;&nbsp; Order Shipped</option>
+                           {% endif %}
+                           {% if data.shop_status == "Delivered Successfully" %}
+                              <option  selected value="Delivered Successfully"> &nbsp;&nbsp; Delivered Successfully</option>
+                           {% else %}
+                              <option  value="Delivered Successfully"> &nbsp;&nbsp; Delivered Successfully</option>
+                           {% endif %}
+                           {% if data.shop_status == "Order In Pending" %}
+                              <option  selected value="Order In Pending"> &nbsp;&nbsp; Order In Pending</option>
+                           {% else %}
+                              <option  value="Order In Pending"> &nbsp;&nbsp; Order In Pending</option>
+                           {% endif %}
+                           {% if data.shop_status == "Not Shipped" %}
+                              <option  selected value="Not Shipped"> &nbsp;&nbsp; Not Shipped</option>
+                           {% else %}
+                              <option  value="Not Shipped"> &nbsp;&nbsp; Not Shipped</option>
+                           {% endif %}
+                         </select>
+                     </div>
+                     <div class="form-outline d-flex justify-content-center mt-2">
+                        <button type="submit" class="btn btn-sm btn-primary waves-effect waves-light">Update Status </button>
+                     </div>
+                     
+                  </div>
+               </form>
+               </div>
+            </div>
+            </div>
+
+      </div>
+      
+   {% else %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body text-center">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>You are not allowed here !!</span>
+            </h4>
+            <h5 class="my-2 mb-sm-0 pt-1">
+               <span>Please Login</span>
+            </h5>
+         </div>
+      </div>
+   {% endif %}
+   </div>
+   <!-- Details Section -->
+</main>
+{% endblock %}
+

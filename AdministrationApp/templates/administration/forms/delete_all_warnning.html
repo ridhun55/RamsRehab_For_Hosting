@@ -1,0 +1,68 @@
+
+{% extends 'administration/admin_base.html' %}
+{% load static %}
+
+{% block title %} Ram's Rehab | Administration {% endblock title %}
+
+{% block content %}
+
+
+<main class="pt-5 mx-lg-3">
+  <div class="container-fluid mt-5">
+   {% if user.is_superuser %}
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>Income & Expense </span>
+            </h4>
+            <a class="btn btn-sm btn-secondary" href="{% url 'export_data' %}">Export to CSV</a>
+         </div>
+      </div>
+
+      <form action="" method="POST">
+         {% csrf_token %}
+      <div class="row wow fadeIn">
+
+            <div class="col-md-8 mx-auto">
+               <div class="card mb-4 ">
+                  <div class="card-header text-white bg-danger"><b>Delete All Records</b></div>
+                  <div class="card-body">
+                     <div class="list-group list-group-flush">
+                        <div class="form-outline text-center">
+                           <h3>Are you sure?</h3>
+                           <p>Delete All the Accounts Details !!</p>
+                           <p>Please conform</p>
+                        </div>
+                        <div class="form-outline mt-2 d-flex justify-content-center">
+                           <a href="{% url 'delete_all_account' %}" type="button" class="btn text-white btn-sm btn-danger"><b>Confirm !</b></a>
+                           <a href="{% url 'add_account' %}" type="button" class="btn text-white btn-sm btn-primary"><b>Cancel</b></a>
+                        </div>               
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+      </div>
+      </form>
+
+   {% else %}
+
+      <div class="card mb-4 wow fadeIn">
+         <div class="card-body text-center">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+               <span>You are not allowed here !!</span>
+            </h4>
+            <h5 class="my-2 mb-sm-0 pt-1 text-danger">
+               <br>
+               <span>Admin Only</span><br><br>
+               <p>- Please Contact Admin -</p>
+            </h5>
+         </div>
+      </div>
+
+   {% endif %}
+  </div>
+</main>
+
+{% endblock %}
+      

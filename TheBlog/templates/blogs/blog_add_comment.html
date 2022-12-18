@@ -1,0 +1,98 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Comments {% endblock %}
+{% block content %}
+<main id="main">
+   <style>
+      .appointment-bg{
+      background: url("{% static 'assets/img/logo/logo_light.png' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+   </style>
+   <section class="breadcrumbs">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+            <h2>Add Comments</h2>
+            <ol>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li>Add Comments</li>
+            </ol>
+         </div>
+      </div>
+   </section>
+   <section id="Appointment" class="contact ">
+      <div class="container">
+         <div class="section-title">
+            <h2>Add Comments</h2>
+            <p></p>
+         </div>
+      </div>
+      <style>
+         #postform p{
+         display: flex;
+         }
+         #postform label{
+         margin-right: 10px;
+         padding:5px 10px 0 10px;
+         width: 200px;
+         max-width: 200px;
+         vertical-align: middle;
+         }
+         #postform input select{
+         margin: 10px;
+         padding: 10px;
+         width: 400px;
+         max-width: 500px;
+         }
+         #postform .django-ckeditor-widget{
+         margin-bottom: 40px;
+         }
+         #postform #id_snippet{
+         margin-bottom: 40px;
+         }
+         #postform #id_header_image {
+         margin-bottom: 40px;
+         }
+         .submit_button{
+            background: #1977cc;
+            border: 0;
+            padding: 10px 35px;
+            color: #fff;
+            transition: 0.4s;
+            border-radius: 50px;
+            cursor: pointer;
+            -webkit-appearance: button;
+            text-transform: none;
+            overflow: visible;
+            margin: 0;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            text-align: center !important;
+            font-weight: 400;
+         }
+      </style>
+      <div class="container ">
+         <div class="row mt-3">
+            <div class="col-lg-12 mt-5 mt-lg-0">
+               {% if user.is_authenticated %}
+               <form id="postform"  method="POST">
+                  {% csrf_token %}
+                  <div class="col-md-8 text-center mx-auto">
+                     {{ form.as_p }}
+                     <button type="submit" class="submit_button">Submit Comment</button>
+                  </div>
+               </form>
+               {% endif %}
+            </div>
+            
+            
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock content %}
+

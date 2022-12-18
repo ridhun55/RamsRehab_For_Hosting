@@ -1,0 +1,41 @@
+{% load static %}
+
+    <style>
+      .sidebar-fixed .logo-wrapper img {
+          max-height: 120px;
+          filter: drop-shadow(3px 3px 17px gray);
+      }
+    </style>
+    <div class="sidebar-fixed position-fixed">
+<div class="overflow-auto">
+      <a href="{% url 'home' %}" target="_blank" class="logo-wrapper waves-effect d-flex justify-content-center" style="padding: 0px; margin: 0px;">
+        <img class="img-fluid" src="{% static 'assets/img/logo/rams_rehab_logo.png' %}" >
+      </a>
+
+      <div class="list-group list-group-flush">
+        <a href="{% url 'administration_home' %}" class="list-group-item waves-effect active">
+          <i class="fas fa-chart-pie mr-3"></i>Dashboard
+        </a>
+        <a href="{% url 'patent_registration' %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-user mr-3"></i>Patient Registration</a>
+        <a href="{% url 'patent_table' %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-table mr-3"></i>Patient Table</a>
+          <span> <br></span>
+
+        <a href="{% url 'quick_appointment_table' %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-table mr-3"></i>Quick Appointment</a>
+        
+        <a href="{% url 'appointment_table' %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-table mr-3"></i>Appointment</a>
+         <span> <br></span>
+        
+         <a href="{% url 'shop_request' %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-table mr-3"></i>Shop Request</a>
+        <a href="{% url 'message_table' %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-table mr-3"></i>Messages</a>
+         <span>
+         <a href="{% url 'subscribers_table' %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-table mr-3"></i>Subscribers</a>
+         <span> <br></span>
+        
+    </div>

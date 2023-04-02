@@ -20,7 +20,12 @@
       {% for item in feedback_data %}
        <div class="testimonial-wrap">
          <div class="testimonial-item">
-           <img src="{{ item.profile_photo.url }}" class="testimonial-img" alt="{{ item.name | capfirst }}">
+          {% if item.profile_photo %}
+            <img src="{{ item.profile_photo.url }}" class="testimonial-img" alt="{{ item.name | capfirst }}">
+          {% else %}
+            <img src="{% static 'assets/img/profile-pic.jpg' %}" class="testimonial-img" alt="{{ item.name | capfirst }}">
+          {% endif %}
+           
            <h3>{{ item.name | capfirst }}</h3>
            <h4>{{ item.Role | capfirst }}</h4>
            <p>

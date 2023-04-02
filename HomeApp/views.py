@@ -25,13 +25,13 @@ def HomeView(request):
 
     if request.method == 'POST' and 'Subscribe' in request.POST:
         email = request.POST.get('email')
-        objemail = models.Subscribe()
-        objemail.email = email
-        objemail.submit_date = datetime.today().date()
+        obj2 = models.Subscribe()
+        obj2.email = email
+        obj2.submit_date = datetime.today().date()
         if email == '':
             return redirect('error')
         else:
-            objemail.save()
+            obj2.save()
             return redirect('success')
 
 
@@ -57,9 +57,11 @@ def AboutView(request):
         else:
             objemail.save()
             return redirect('success')
-    context = {'home': '', 'about': 'active', 'services': '', 'gallery': '', 'contact': ''}
-    context = {'c_data':c_data }
-    context = {'social':models.SocialMedia.objects.all()}
+    context = {
+        'home': '', 'about': 'active', 'services': '', 'gallery': '', 'contact': '',
+        'c_data':c_data,
+        'social':models.SocialMedia.objects.all()
+        }
     html = 'about.html'
     return render(request,html,context)
 
@@ -76,8 +78,10 @@ def ServicesView(request):
         else:
             objemail.save()
             return redirect('success')
-    context = {'home': '', 'c_data':c_data, 'about': '', 'services': 'active', 'gallery': '', 'contact': ''}
-    context = {'social':models.SocialMedia.objects.all()}
+    context = {
+        'home': '', 'c_data':c_data, 'about': '', 'services': 'active', 'gallery': '', 'contact': '',
+        'social':models.SocialMedia.objects.all()
+        }
     html = 'services.html'
     return render(request,html,context)
 
@@ -95,14 +99,15 @@ def GalleryView(request):
             objemail.save()
             return redirect('success')
     img_data = models.Gallery.objects.all()
-    context = {'img_data': img_data,'c_data':c_data, 'home': '', 'about': '', 'services': '', 'gallery': 'active', 'contact': ''}
-    context = {'social':models.SocialMedia.objects.all()}
+    context = {
+        'img_data': img_data,'c_data':c_data, 'home': '', 'about': '', 'services': '', 'gallery': 'active', 'contact': '',
+        'social':models.SocialMedia.objects.all()
+        }
     html = 'gallery.html'
     return render(request,html,context)
 
 
 def ShopView(request):
-    data = models.Shop.objects.all()
     if request.method == 'POST' and 'Subscribe' in request.POST:
         email = request.POST.get('email')
         objemail = models.Subscribe()
@@ -113,8 +118,11 @@ def ShopView(request):
         else:
             objemail.save()
             return redirect('success')
-    context = {'data': data, 'home': '', 'about': '', 'services': '', 'gallery': 'active', 'contact': ''}
-    context = {'social':models.SocialMedia.objects.all()}
+        
+    context = {
+        'social':models.SocialMedia.objects.all(),
+        'data':models.Shop.objects.all()
+        }
     html = 'shop.html'
     return render(request,html,context)
 
@@ -159,10 +167,15 @@ def ShopDetailView(request,id):
             objemail.save()
             return redirect('success')
         
-    context = {'data': data, 'home': '', 'about': '', 'services': '', 'gallery': 'active', 'contact': ''}
-    context = {'social':models.SocialMedia.objects.all()}
+    context = {
+        'data': data, 'home': '', 'about': '', 'services': '', 'gallery': 'active', 'contact': '',
+        'social':models.SocialMedia.objects.all()
+        }
     html = 'shop_detail.html'
     return render(request,html,context)
+
+
+
 # ==============================================================
 
 def ContactView(request):
@@ -195,8 +208,10 @@ def ContactView(request):
             objemail.save()
             return redirect('success')
         
-    context = {'home': '', 'about': '', 'services': '', 'gallery': '', 'contact': 'active'}
-    context = {'social':models.SocialMedia.objects.all()}
+    context = {
+        'home': '', 'about': '', 'services': '', 'gallery': '', 'contact': 'active',
+        'social':models.SocialMedia.objects.all()
+        }
     html = 'contact.html'
     return render(request,html,context)
 
@@ -279,6 +294,7 @@ def MusculoskeletalView(request):
     html = 'Musculoskeletal.html'
     return render(request,html,context)
 
+
 def ElbowView(request):
     if request.method == 'POST' and 'Subscribe' in request.POST:
         email = request.POST.get('email')
@@ -294,6 +310,7 @@ def ElbowView(request):
     context = {'social':models.SocialMedia.objects.all()}
     html = 'notes/elbow.html'
     return render(request,html,context)
+
 
 def HipView(request):
     if request.method == 'POST' and 'Subscribe' in request.POST:
@@ -311,6 +328,7 @@ def HipView(request):
     html = 'notes/hip.html'
     return render(request,html,context)
 
+
 def AnkleView(request):
     if request.method == 'POST' and 'Subscribe' in request.POST:
         email = request.POST.get('email')
@@ -326,6 +344,7 @@ def AnkleView(request):
     context = {'social':models.SocialMedia.objects.all()}
     html = 'notes/ankle.html'
     return render(request,html,context)
+
 
 def ShoulderView(request):
     if request.method == 'POST' and 'Subscribe' in request.POST:
@@ -343,6 +362,7 @@ def ShoulderView(request):
     html = 'notes/shoulder.html'
     return render(request,html,context)
 
+
 def WristView(request):
     if request.method == 'POST' and 'Subscribe' in request.POST:
         email = request.POST.get('email')
@@ -358,6 +378,7 @@ def WristView(request):
     context = {'social':models.SocialMedia.objects.all()}
     html = 'notes/wrist.html'
     return render(request,html,context)
+
 
 def KneeJointView(request):
     if request.method == 'POST' and 'Subscribe' in request.POST:
@@ -375,6 +396,7 @@ def KneeJointView(request):
     html = 'notes/knee_joint.html'
     return render(request,html,context)
 
+
 def HeadNeckView(request):
     if request.method == 'POST' and 'Subscribe' in request.POST:
         email = request.POST.get('email')
@@ -390,6 +412,7 @@ def HeadNeckView(request):
     context = {'social':models.SocialMedia.objects.all()}
     html = 'notes/head_neck.html'
     return render(request,html,context)
+
 
 def LumbarSpineView(request):
     if request.method == 'POST' and 'Subscribe' in request.POST:
@@ -504,6 +527,7 @@ def ErrorView(request):
     context = {'social':models.SocialMedia.objects.all()}
     html = 'error.html'
     return render(request,html,context)
+
 
 def SearchProductsView(request):
     if request.method == 'POST' and 'Subscribe' in request.POST:

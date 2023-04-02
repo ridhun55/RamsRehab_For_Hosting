@@ -15,7 +15,7 @@
          </div>
       </div>
       
-      {% if user.is_superuser %}
+      {% if user.is_staff %}
       <div class="row wow fadeIn" >
          <div class="col-md-12 ">
             <div class="card mb-4 ">
@@ -112,7 +112,7 @@
                      </a>
                      <a href="#" class="list-group-item list-group-item-action waves-effect">
                         <span class="d-flex justify-content-between">  
-                           {% if user.is_superuser %} 
+                           {% if user.is_staff %} 
                            <a href="{% url 'edit_todo' item.id %}" class="text-center btn btn-sm btn-default">
                               <b>Todo Edit</b>                       
                            </a> 

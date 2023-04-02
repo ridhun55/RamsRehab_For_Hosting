@@ -1,0 +1,65 @@
+def ShopView(request):
+    data = models.Shop.objects.all()
+    print(data)
+    if request.method == 'POST' and 'Subscribe' in request.POST:
+        email = request.POST.get('email')
+        objemail = models.Subscribe()
+        objemail.email = email
+        objemail.submit_date = datetime.today().date()
+        if email == '':
+            return redirect('error')
+        else:
+            objemail.save()
+            return redirect('success')
+        
+    context = {'data': data, 'home': '', 'about': '', 'services': '', 'gallery': 'active', 'contact': ''}
+    context = {'social':models.SocialMedia.objects.all()}
+    html = 'shop.html'
+    return render(request,html,context)
+
+
+
+
+def ShopDetailView(request,id):
+    try:
+        data = models.Shop.objects.get(id=id)
+    except models.Shop.DoesNotExist:
+        return render(request,'404.html')
+    
+    data = models.Shop.objects.get(id=id)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        mobile = request.POST.get('mobile')
+        product_id = id
+        request_date = datetime.today().date()
+        obj = models.ShopRequest()
+        obj.name = name
+        obj.mobile = mobile
+        obj.product_id = product_id
+        obj.request_date = request_date
+        obj.price = data.price
+        obj.offer_price = data.offer_price
+        obj.shop_status = "New Request"
+        obj.is_read = False
+        obj.is_delivered = False
+        if mobile == '':
+            return redirect('error')
+        else:
+            obj.save()
+            return redirect('success')
+        
+    if request.method == 'POST' and 'Subscribe' in request.POST:
+        email = request.POST.get('email')
+        objemail = models.Subscribe()
+        objemail.email = email
+        objemail.submit_date = datetime.today().date()
+        if email == '':
+            return redirect('error')
+        else:
+            objemail.save()
+            return redirect('success')
+        
+    context = {'data': data, 'home': '', 'about': '', 'services': '', 'gallery': 'active', 'contact': ''}
+    context = {'social':models.SocialMedia.objects.all()}
+    html = 'shop_detail.html'
+    return render(request,html,context)

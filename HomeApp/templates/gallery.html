@@ -90,7 +90,11 @@
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="{{ item.image.url}}" class="venobox vbox-item" data-gall="gallery-item">
-                <img src="{{ item.image.url}}" alt="{{ item.image_title }}" class="img-fluid">
+               {% if image %}
+               <img src="{{ item.image.url}}" alt="{{ item.image_title }}" class="img-fluid">
+               {% else %}
+
+               {% endif %}
               </a>
             </div>
           </div>

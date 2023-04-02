@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
@@ -6,7 +5,7 @@
 <main id="main">
 
    <style>
-      .services{
+      .services {
          background: url("{% static 'assets/img/bg/bg_4.jpg' %}");
          background-repeat: no-repeat;
          background-size: cover;
@@ -17,84 +16,92 @@
          overflow: hidden;
          min-width: 190px;
          border-radius: 5%;
-}
-.doctors .member {
-    position: relative;
-    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
-    padding: 10px;
-    border-radius: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    
-}
-   </style>
-<style>
-   .card-body{
-      padding-top: 10px;
-      padding-bottom: 10px;
-   }
-   .card{
-    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
-    padding: 0;
-    border-radius: 10px;
-    border: none;
-    margin-top: auto;
-    width: 20rem;
-   }
-   .card-title {
-      font-weight: 600;
-      margin-bottom: 5px;
-      font-size: 18px;
-      color: #2c4964;
-      font-family: 'Open Sans', sans-serif;
-      border-bottom: solid 1px #b2c8dd;
-   }
-   .card-sub{
-      display: block;
-      font-size: 14px;
-      padding-bottom: 5px;
-      position: relative;
-      font-weight: 600;
-      display: inline;
-      color: #ffffff;
-      
-   }
-   .card-text{
-      margin: 5px 0 0 0;
-      font-size: 14px
-   }
-   @media only screen and (max-width: 300px) {
-      .cat_date{
-         display: none;
       }
-      .card-text{
-      margin: 2px 0 0 0;
-      font-size: 12px
-      }
-      .card-title {
-      font-weight: 600;
-      margin-bottom: 3px;
-      font-size: 14px;
-   }
-   .card{
-    box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
-    padding: 0;
-    border-radius: 10px;
-    border: none;
-    margin-top: auto;
-    width: 20rem;
-   }
-   }
 
-</style>
+      .doctors .member {
+         position: relative;
+         box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+         padding: 10px;
+         border-radius: 10px;
+         padding-top: 20px;
+         padding-bottom: 20px;
+
+      }
+   </style>
+   <style>
+      .card-body {
+         padding-top: 10px;
+         padding-bottom: 10px;
+      }
+
+      .card {
+         box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+         padding: 0;
+         border-radius: 10px;
+         border: none;
+         margin-top: auto;
+         width: 20rem;
+      }
+
+      .card-title {
+         font-weight: 600;
+         margin-bottom: 5px;
+         font-size: 18px;
+         color: #2c4964;
+         font-family: 'Open Sans', sans-serif;
+         border-bottom: solid 1px #b2c8dd;
+      }
+
+      .card-sub {
+         display: block;
+         font-size: 14px;
+         padding-bottom: 5px;
+         position: relative;
+         font-weight: 600;
+         display: inline;
+         color: #ffffff;
+
+      }
+
+      .card-text {
+         margin: 5px 0 0 0;
+         font-size: 14px
+      }
+
+      @media only screen and (max-width: 300px) {
+         .cat_date {
+            display: none;
+         }
+
+         .card-text {
+            margin: 2px 0 0 0;
+            font-size: 12px
+         }
+
+         .card-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+            font-size: 14px;
+         }
+
+         .card {
+            box-shadow: 0px 2px 15px rgb(44 73 100 / 8%);
+            padding: 0;
+            border-radius: 10px;
+            border: none;
+            margin-top: auto;
+            width: 20rem;
+         }
+      }
+   </style>
 
    <section class="breadcrumbs">
       <div class="container">
          <div class="d-flex justify-content-between align-items-center">
             <h2>Shop</h2>
             <ol>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li>Shop</li>
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li>Shop</li>
             </ol>
          </div>
       </div>
@@ -103,96 +110,102 @@
 
    <section id="services" class="services">
       <div class="container">
-         
+
          <nav class="navbar navbar-light justify-content-center">
             <form action="{% url 'search_products' %}" method="POST" class="form-inline">
                {% csrf_token %}
-               <div class="input-group mb-3" >
-                  <input type="search" name="searched"  class="form-control outline-info" placeholder="Search Product" aria-describedby="basic-addon1">
-                  <div class="input-group-prepend" >
-                     <button  type="submit" class="btn btn-outline-info" id="basic-addon1"><i class="icofont-search"></i></button>
+               <div class="input-group mb-3">
+                  <input type="search" name="searched" class="form-control outline-info" placeholder="Search Product"
+                     aria-describedby="basic-addon1">
+                  <div class="input-group-prepend">
+                     <button type="submit" class="btn btn-outline-info" id="basic-addon1"><i
+                           class="icofont-search"></i></button>
                   </div>
                </div>
             </form>
-          </nav>
+         </nav>
 
          {% if data %}
          <div class="section-title">
-         <h2>{{ data.item }}</h2>
-         <p class="mb-5">Product Details</p>
-         <div class="container row">
-            <div class="col-md-6">
-               <img style="width: 100%;
+            <h2>{{ data.item }}</h2>
+            <p class="mb-5">Product Details</p>
+            <div class="container row">
+               <div class="col-md-6">
+                  <img style="width: 100%;
                max-width: 600px;
                height: auto;" src="{{ data.item_Image.url}}" alt="" srcset="">
-            </div>
-            <div class="col-md-6 d-flex align-items-stretch">
-               
-               <div class="card" style="width: 100%;">
-                  <div class="card-body mt-4">
-                     <h4 style="color: #2c4964;"> {{ data.item }}</h4><hr>
-                     <table class="d-flex justify-content-center">
-                        <tr>
-                           <td class="text-right"> Product Id :</td>
-                           <td class="text-left"> <span class="text-danger ml-2"><strong>P{{ data.id }}</strong></span></td>
-                        </tr>
-                        <tr>
-                           <td class="text-right"> Category :</td>
-                           <td class="text-left"> <span class="text-info ml-2"><strong>{{ data.category |capfirst }}</strong></span></td>
-                        </tr>
-                        <tr><td class="text-justify pt-3"></td></tr>
-
-                        {% if data.offer_price %}
-                        <tr>
-                           <td class="text-right"> Price :</td>
-                           <td class="text-left"> <span class="text-dark ml-2"><strike>{{ data.price }}</strike></span></td>
-                        </tr>
-                        <tr>
-                           <td class="text-right"> Our Price :</td>
-                           <td class="text-left"> <span class="text-danger ml-2"><strong>{{ data.offer_price }}</strong></span></td>
-                        </tr>
-                        {% else %}
-                        <tr>
-                           <td class="text-right"> Offer Price :</td>
-                           <td class="text-left"> <span class="text-danger ml-2"><strong>{{ data.price }}</strong></span></td>
-                     </tr>
-                        {% endif %}
-                     </table>
-                     <hr>
-                     <p style="text-align: left;">Discription : </p>
-                     <p class="text-justify mt-1">{{ data.discription |capfirst }}</p>
-                  </div>
-                  <div class="card-body">
-                     <hr>
-                     <p class="text-info">To Get this product just send your contact details.. Our team will contact you soon </p>
-                     <form action="" method="POST" class="row py-4">
-                        {% csrf_token %}
-                        <div class="col-md-6">
-                           <input type="text" name="name" class="form-control" id="name" placeholder="Name" >
-                        </div>
-                        <div class="col-md-6">
-                           <input type="text" name="mobile" class="form-control" id="name" placeholder="Mobile" >
-                        </div>
-                        <div class="col-md-4 mt-3 mx-auto">
-                           <button class="btn btn-block btn-sm btn-info" type="submit">Submit</button>
-                        </div>
-                     </form>
-                  </div>
                </div>
+               <div class="col-md-6 d-flex align-items-stretch">
 
+                  <div class="card" style="width: 100%;">
+                     <div class="card-body mt-4">
+                        <h4 style="color: #2c4964;"> {{ data.item }}</h4>
+                        <hr>
+                        <table class="d-flex justify-content-center">
+                           <tr>
+                              <td class="text-right"> Product Id :</td>
+                              <td class="text-left"> <span class="text-danger ml-2"><strong>P{{data.id}}</strong></span></td>
+                           </tr>
+                           <tr>
+                              <td class="text-right"> Category :</td>
+                              <td class="text-left"> <span class="text-info ml-2"><strong>{{data.category|capfirst}}</strong></span></td>
+                           </tr>
+                           <tr>
+                              <td class="text-justify pt-3"></td>
+                           </tr>
+
+                           {% if data.offer_price %}
+                           <tr>
+                              <td class="text-right"> Price :</td>
+                              <td class="text-left"> <span class="text-dark ml-2"><strike>{{data.price}}</strike></span></td>
+                           </tr>
+                           <tr>
+                              <td class="text-right"> Our Price :</td>
+                              <td class="text-left"> <span class="text-danger ml-2"><strong>{{data.offer_price}}</strong></span></td>
+                           </tr>
+                           {% else %}
+                           <tr>
+                              <td class="text-right"> Offer Price :</td>
+                              <td class="text-left"> <span class="text-danger ml-2"><strong>{{data.price}}</strong></span></td>
+                           </tr>
+                           {% endif %}
+                        </table>
+                        <hr>
+                        <p style="text-align: left;">Discription : </p>
+                        <p class="text-justify mt-1">{{data.discription|capfirst}}</p>
+                     </div>
+                     <div class="card-body">
+                        <hr>
+                        <p class="text-info">To Get this product just send your contact details.. Our team will contact
+                           you soon </p>
+                        <form action="" method="POST" class="row py-4">
+                           {% csrf_token %}
+                           <div class="col-md-6">
+                              <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+                           </div>
+                           <div class="col-md-6">
+                              <input type="text" name="mobile" class="form-control" id="name" placeholder="Mobile">
+                           </div>
+                           <div class="col-md-4 mt-3 mx-auto">
+                              <button class="btn btn-block btn-sm btn-info" type="submit">Submit</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+
+               </div>
             </div>
-         </div>
             <br>
          </div>
          {% else %}
 
          {% endif %}
 
-        </div>
       </div>
-    </section>
+      </div>
+   </section>
 
- </main>
+</main>
 
 
 {% endblock content %}
